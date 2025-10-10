@@ -1,0 +1,59 @@
+version: "3.8"
+
+services:
+  db:
+    image: docker.io/library/mariadb:10.11
+    container_name: meu_banco_de_dados
+    environment:
+      MYSQL_ROOT_PASSWORD: senhasecreta
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mariadb-admin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} --silent",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+    restart: unless-stopped
+
+  wordpress:
+    image: docker.io/library/wordpress:php8.3-apache
+    container_name: meu_site_wordpress
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: "true"
+    ports:
+      - "8000:80"
+    volumes:
+      - ../dev/wp-content:/var/www/html/wp-content
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: docker.io/phpmyadmin/phpmyadmin:latest
+    container_name: meu_phpmyadmin
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+volumes:
+  db_data:
