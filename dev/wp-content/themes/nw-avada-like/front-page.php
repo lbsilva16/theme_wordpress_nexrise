@@ -15,30 +15,52 @@ get_header();
         <h1 class="hero__title">
           <?php esc_html_e( 'We Build Websites That Sell', 'nw-avada-like' ); ?>
         </h1>
-        
-        <p class="hero__subtitle"><?php esc_html_e( 'From WordPress premium themes to fully custom development ??" we design, build, and launch websites that grow your business.', 'nw-avada-like' ); ?></p>
-        
-        <!-- Grid de servi�os 2x2 -->
+
+        <p class="hero__subtitle"><?php esc_html_e( 'From WordPress premium themes to fully custom development - we design, build, and launch websites that grow your business.', 'nw-avada-like' ); ?></p>
+
+        <!-- Grid de servicos 2x2 -->
         <div class="hero__services-grid">
           <div class="hero__service">
-            <span class="hero__service-icon">?YO?</span>
+            <span class="hero__service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+                <path d="M12 3c3 3 3 15 0 18m9-9H3m15.5 4.5c-2.5-1-5.5-1-8 0m8-9c-2.5 1-5.5 1-8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </span>
             <span><?php esc_html_e( 'Website Development', 'nw-avada-like' ); ?></span>
           </div>
           <div class="hero__service">
-            <span class="hero__service-icon">?s?</span>
+            <span class="hero__service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9.75 3L4.5 13.5h6l-1.5 7.5L19.5 9h-6l1.5-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
             <span><?php esc_html_e( 'Fast & Secure', 'nw-avada-like' ); ?></span>
           </div>
           <div class="hero__service">
-            <span class="hero__service-icon">?Y>'</span>
+            <span class="hero__service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 5h14l-1.2 8.4a3 3 0 0 1-3 2.6H9.5a3 3 0 0 1-3-2.3L5 4H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="9.5" cy="19" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="17.5" cy="19" r="1.5" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </span>
             <span><?php esc_html_e( 'Online Stores (eCommerce)', 'nw-avada-like' ); ?></span>
           </div>
           <div class="hero__service">
-            <span class="hero__service-icon">?Y"^</span>
+            <span class="hero__service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 17L10.5 11.5l3 3L21 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15 7h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M5 5h4v4H5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                <path d="M5 21h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </span>
             <span><?php esc_html_e( 'SEO Optimized', 'nw-avada-like' ); ?></span>
           </div>
         </div>
-        
-        <!-- Bot�es lado a lado -->
+
+        <!-- Botoes lado a lado -->
         <div class="hero__actions">
           <a class="button button--primary button--large" href="#cta-final"><?php esc_html_e( 'Get My Website Today', 'nw-avada-like' ); ?></a>
           <a class="button button--ghost button--large" href="#faq"><?php esc_html_e( 'Request a Free Quote', 'nw-avada-like' ); ?></a>
@@ -69,15 +91,15 @@ get_header();
   <section class="portfolio" id="portfolio">
     <div class="section-wrapper portfolio__inner">
       <header class="section-heading">
-        <h2><?php esc_html_e( 'From Law Firms to Online Stores ??" We Design for Growth.', 'nw-avada-like' ); ?></h2>
+        <h2><?php esc_html_e( 'From Law Firms to Online Stores - We Design for Growth.', 'nw-avada-like' ); ?></h2>
         <p><?php esc_html_e( 'Custom landing pages and eCommerce websites built to grow your business.', 'nw-avada-like' ); ?></p>
       </header>
       <div class="portfolio__images">
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-??"-Build-Your-Law-Firm-Landing-Page.png" alt="Law Firm Landing Page">
+          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise---Build-Your-Law-Firm-Landing-Page.png" alt="Law Firm Landing Page">
         </div>
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-??"-Build-Your-HVAC-Landing-Page.png" alt="HVAC Landing Page">
+          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise---Build-Your-HVAC-Landing-Page.png" alt="HVAC Landing Page">
         </div>
         <div class="container-imagem">
           <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-We-build-e-commerce-websites-that-turn-your-passion-into-profit-scaled.jpg" alt="E-commerce Website">

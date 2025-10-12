@@ -428,8 +428,20 @@ body.is-nav-open .global-header__toggle-box::after {
 }
 
 .hero__service-icon {
-  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--color-primary);
   flex-shrink: 0;
+}
+
+.hero__service-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 /* Hero Actions */
@@ -1135,5 +1147,4 @@ body.is-nav-open .global-header__toggle-box::after {
 body.home .global-header + .site-main {
   padding-top: 0;
 }
-
 
