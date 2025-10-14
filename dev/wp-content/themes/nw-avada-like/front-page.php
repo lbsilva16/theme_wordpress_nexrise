@@ -71,11 +71,11 @@ get_header();
           <div class="hero-media-slider__viewport">
             <div class="hero-media-slider__track" style="transform: translateX(0%);">
               <div class="hero-media-slider__slide is-active" aria-hidden="false">
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/create-your-website-with-professionals.png" alt="Hero Image 1" class="hero__media-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-image-1.png" alt="Hero Image 1" class="hero__media-image">
               </div>
               <div class="hero-media-slider__slide" aria-hidden="true">
                 <!-- Substitua o src abaixo pela sua segunda imagem -->
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/Imagem-banner.png" alt="Hero Image 2" class="hero__media-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-image-2.png" alt="Hero Image 2" class="hero__media-image">
               </div>
             </div>
           </div>
@@ -96,13 +96,13 @@ get_header();
       </header>
       <div class="portfolio__images">
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise---Build-Your-Law-Firm-Landing-Page.png" alt="Law Firm Landing Page">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/law-firm-landing.png" alt="Law Firm Landing Page">
         </div>
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise---Build-Your-HVAC-Landing-Page.png" alt="HVAC Landing Page">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hvac-landing.png" alt="HVAC Landing Page">
         </div>
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-We-build-e-commerce-websites-that-turn-your-passion-into-profit-scaled.jpg" alt="E-commerce Website">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ecommerce-website.jpg" alt="E-commerce Website">
         </div>
       </div>
     </div>
