@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $faqs = [
 	[
 		'question' => __( 'How long does it take to launch?', 'nw-avada-like' ),
-		'answer'   => __( 'Most builds go live within 2–5 weeks. We lock milestones, owner, and review windows during kickoff so there are no surprises.', 'nw-avada-like' ),
+		'answer'   => __( 'Most builds go live within 2-5 weeks. We lock milestones, owner, and review windows during kickoff so there are no surprises.', 'nw-avada-like' ),
 	],
 	[
 		'question' => __( 'Will you help with copy and positioning?', 'nw-avada-like' ),
@@ -36,14 +36,13 @@ $faqs = [
 	],
 ];
 ?>
-<section class="nx-section" id="faq" style="scroll-margin-top: 96px;">
+<section id="faq" class="nx-section nx-section--soft" style="scroll-margin-top: 96px;">
 	<div class="nx-container">
-		<header class="nx-section__header">
-			<h2 class="nx-h2"><?php esc_html_e( 'Frequently Asked Questions', 'nw-avada-like' ); ?></h2>
-			<p class="nx-lead"><?php esc_html_e( 'Transparent answers before you book a call. Need something else? Reach out and we will add it.', 'nw-avada-like' ); ?></p>
-		</header>
+		<span class="nx-kicker"><?php esc_html_e( 'FAQ', 'nw-avada-like' ); ?></span>
+		<h2 class="nx-h2"><?php esc_html_e( 'Frequently Asked Questions', 'nw-avada-like' ); ?></h2>
+		<p class="nx-lead"><?php esc_html_e( 'Transparent answers before you book a call. Need something else? Reach out and we will add it.', 'nw-avada-like' ); ?></p>
 		<?php foreach ( $faqs as $index => $faq ) : ?>
-			<details <?php echo 0 === $index ? 'open' : ''; ?>>
+			<details class="reveal" <?php echo 0 === $index ? 'open' : ''; ?>>
 				<summary><?php echo esc_html( $faq['question'] ); ?></summary>
 				<p><?php echo esc_html( $faq['answer'] ); ?></p>
 			</details>

@@ -11,61 +11,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $steps = [
 	[
-		'title'       => __( 'Discovery & Roadmap', 'nw-avada-like' ),
-		'description' => __( 'We review goals, analytics, and current assets, then deliver a sitemap, conversion plan, and success metrics.', 'nw-avada-like' ),
+		'title' => __( 'Discovery & Site Plan', 'nw-avada-like' ),
+		'copy'  => __( 'Goals, sitemap, wireframe, estimate.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => __( 'UX, Copy, & Visual Design', 'nw-avada-like' ),
-		'description' => __( 'High-fidelity layouts with persuasive messaging, proof blocks, and content direction ready for review.', 'nw-avada-like' ),
+		'title' => __( 'Design & Copy', 'nw-avada-like' ),
+		'copy'  => __( 'On-brand UI, persuasive messaging, review and approve.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => __( 'Build, Integrate, & Automate', 'nw-avada-like' ),
-		'description' => __( 'WordPress or WooCommerce build-out with CRM, marketing automation, payments, and analytics wired in.', 'nw-avada-like' ),
+		'title' => __( 'Build & Integrations', 'nw-avada-like' ),
+		'copy'  => __( 'WordPress or WooCommerce, payments, CRM, analytics.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => __( 'Launch, QA, & Optimize', 'nw-avada-like' ),
-		'description' => __( 'Performance tuning, accessibility checks, redirect mapping, and an optimization roadmap for the next 90 days.', 'nw-avada-like' ),
+		'title' => __( 'Launch & Optimize', 'nw-avada-like' ),
+		'copy'  => __( 'QA, redirects, performance, training, A/B roadmap.', 'nw-avada-like' ),
 	],
 ];
 ?>
-<section class="nx-section" id="process" style="scroll-margin-top: 96px;">
+<section id="process" class="nx-section" style="scroll-margin-top: 96px;">
 	<div class="nx-container">
-		<div class="nx-grid nx-grid--2">
-			<div>
-				<header class="nx-section__header">
-					<h2 class="nx-h2"><?php esc_html_e( 'Process: Fast, Transparent, No Guesswork', 'nw-avada-like' ); ?></h2>
-					<p class="nx-lead"><?php esc_html_e( 'Every phase is documented in ClickUp so you always know status, owner, and next deliverable.', 'nw-avada-like' ); ?></p>
-				</header>
-				<div class="nx-steps">
-					<?php foreach ( $steps as $step ) : ?>
-						<article class="nx-step">
-							<h3><?php echo esc_html( $step['title'] ); ?></h3>
-							<p><?php echo esc_html( $step['description'] ); ?></p>
-						</article>
-					<?php endforeach; ?>
+		<span class="nx-kicker"><?php esc_html_e( 'Process', 'nw-avada-like' ); ?></span>
+		<h2 class="nx-h2"><?php esc_html_e( 'Process: Fast, Transparent, No Guesswork', 'nw-avada-like' ); ?></h2>
+		<div class="nx-steps nx-steps--line" style="margin-top:20px">
+			<?php foreach ( $steps as $step ) : ?>
+				<div class="nx-step reveal">
+					<strong><?php echo esc_html( $step['title'] ); ?></strong><br>
+					<?php echo esc_html( $step['copy'] ); ?>
 				</div>
-				<p class="nx-note"><?php esc_html_e( 'Typical timeline: 2–5 weeks depending on complexity.', 'nw-avada-like' ); ?></p>
-				<div class="nx-actions">
-					<a class="nx-btn nx-btn--primary" href="#final-cta"><?php esc_html_e( 'Book a 15-Minute Intro Call', 'nw-avada-like' ); ?></a>
-					<a class="nx-btn nx-btn--ghost" href="#packages"><?php esc_html_e( 'Compare Packages', 'nw-avada-like' ); ?></a>
-				</div>
-			</div>
-			<div>
-				<?php
-				if ( function_exists( 'nx_render_section_image' ) ) {
-					nx_render_section_image(
-						'nx_img_process_visual',
-						__( 'Timeline and workflow visual', 'nw-avada-like' ),
-						[
-							'class'      => '',
-							'width'      => 1200,
-							'height'     => 900,
-							'min_height' => 360,
-						]
-					);
-				}
-				?>
-			</div>
+			<?php endforeach; ?>
+		</div>
+		<p class="nx-lead" style="margin-top:10px">
+			<?php esc_html_e( 'Typical timeline: 2-5 weeks.', 'nw-avada-like' ); ?>
+		</p>
+		<div style="margin-top:16px">
+			<a class="nx-btn nx-btn--primary" href="#final-cta"><?php esc_html_e( 'Book a 15-Minute Intro Call', 'nw-avada-like' ); ?></a>
 		</div>
 	</div>
 </section>

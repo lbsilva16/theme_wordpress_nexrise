@@ -12,17 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 $highlights = [
 	__( 'Free roadmap call with a senior strategist.', 'nw-avada-like' ),
 	__( 'Custom scope, investment, and timeline within 48 hours.', 'nw-avada-like' ),
-	__( 'No-pressure engagement—keep the plan even if you pass.', 'nw-avada-like' ),
+	__( 'No-pressure engagement - keep the plan even if you pass.', 'nw-avada-like' ),
 ];
 ?>
-<section class="nx-section" id="final-cta" style="scroll-margin-top: 96px;">
+<section id="final-cta" class="nx-section" style="scroll-margin-top: 96px;">
 	<div class="nx-container">
 		<div class="nx-grid nx-grid--2">
-			<div>
-				<header class="nx-section__header">
-					<h2 class="nx-h2"><?php esc_html_e( 'Ready to Launch a Revenue-Ready WordPress Site?', 'nw-avada-like' ); ?></h2>
-					<p class="nx-lead"><?php esc_html_e( 'Book a strategy call and get a tailored plan covering scope, deliverables, and investment.', 'nw-avada-like' ); ?></p>
-				</header>
+			<div class="reveal">
+				<span class="nx-kicker"><?php esc_html_e( 'Next steps', 'nw-avada-like' ); ?></span>
+				<h2 class="nx-h2"><?php esc_html_e( 'Ready to Launch a Revenue-Ready WordPress Site?', 'nw-avada-like' ); ?></h2>
+				<p class="nx-lead"><?php esc_html_e( 'Book a strategy call and get a tailored plan covering scope, deliverables, and investment.', 'nw-avada-like' ); ?></p>
 				<ul class="nx-bullets">
 					<?php foreach ( $highlights as $highlight ) : ?>
 						<li><?php echo esc_html( $highlight ); ?></li>
@@ -38,12 +37,12 @@ $highlights = [
 						/* translators: 1: phone number, 2: office hours */
 						esc_html__( 'Prefer email or phone? Call %1$s or message us anytime %2$s.', 'nw-avada-like' ),
 						'(310) 555-7842',
-						'Mon–Fri, 9am–5pm PT'
+						'Mon-Fri, 9am-5pm PT'
 					);
 					?>
 				</p>
 			</div>
-			<div>
+			<div class="reveal">
 				<?php
 				if ( function_exists( 'nx_render_section_image' ) ) {
 					nx_render_section_image(
