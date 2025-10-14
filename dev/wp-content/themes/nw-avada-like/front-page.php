@@ -71,17 +71,24 @@ get_header();
           <div class="hero-media-slider__viewport">
             <div class="hero-media-slider__track" style="transform: translateX(0%);">
               <div class="hero-media-slider__slide is-active" aria-hidden="false">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-image-1.png" alt="Hero Image 1" class="hero__media-image">
+                <img src="http://localhost:8000/wp-content/uploads/2025/10/We-create-your-online-store-so-you-can-focus-on-making-money.jpg" alt="We create your online store" class="hero__media-image">
               </div>
               <div class="hero-media-slider__slide" aria-hidden="true">
-                <!-- Substitua o src abaixo pela sua segunda imagem -->
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-image-2.png" alt="Hero Image 2" class="hero__media-image">
+                <img src="http://localhost:8000/wp-content/uploads/2025/10/Turn-your-vision-into-a-sales-generating-reality.-We-build-websites-that-work.png" alt="Turn your vision into reality" class="hero__media-image">
+              </div>
+              <div class="hero-media-slider__slide" aria-hidden="true">
+                <img src="http://localhost:8000/wp-content/uploads/2025/10/Nexrise-we-help-you-grow.-Come-and-find-out-more.jpg" alt="Nexrise we help you grow" class="hero__media-image">
+              </div>
+              <div class="hero-media-slider__slide" aria-hidden="true">
+                <img src="http://localhost:8000/wp-content/uploads/2025/10/Nexrise-We-build-your-store-you-build-your-fortune.jpg" alt="We build your store you build your fortune" class="hero__media-image">
               </div>
             </div>
           </div>
           <div class="hero-media-slider__dots" role="tablist" aria-label="Hero media slider navigation">
             <button class="hero-media-slider__dot is-active" role="tab" aria-selected="true" aria-controls="hero-media-slide-1" data-slide="0"><span class="visually-hidden">Slide 1</span></button>
             <button class="hero-media-slider__dot" role="tab" aria-selected="false" aria-controls="hero-media-slide-2" data-slide="1"><span class="visually-hidden">Slide 2</span></button>
+            <button class="hero-media-slider__dot" role="tab" aria-selected="false" aria-controls="hero-media-slide-3" data-slide="2"><span class="visually-hidden">Slide 3</span></button>
+            <button class="hero-media-slider__dot" role="tab" aria-selected="false" aria-controls="hero-media-slide-4" data-slide="3"><span class="visually-hidden">Slide 4</span></button>
           </div>
         </div>
       </div>
