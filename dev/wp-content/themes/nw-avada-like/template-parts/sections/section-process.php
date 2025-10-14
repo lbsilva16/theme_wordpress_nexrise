@@ -11,57 +11,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $steps = [
 	[
-		'title'       => 'Discovery & Site Plan',
-		'description' => '&ndash; goals, sitemap, wireframe, estimate.',
+		'title'       => __( 'Discovery & Roadmap', 'nw-avada-like' ),
+		'description' => __( 'We review goals, analytics, and current assets, then deliver a sitemap, conversion plan, and success metrics.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Design & Copy',
-		'description' => '&ndash; on-brand UI, persuasive messaging, review/approve.',
+		'title'       => __( 'UX, Copy, & Visual Design', 'nw-avada-like' ),
+		'description' => __( 'High-fidelity layouts with persuasive messaging, proof blocks, and content direction ready for review.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Build & Integrations',
-		'description' => '&ndash; WordPress/WooCommerce, payments, CRM, analytics.',
+		'title'       => __( 'Build, Integrate, & Automate', 'nw-avada-like' ),
+		'description' => __( 'WordPress or WooCommerce build-out with CRM, marketing automation, payments, and analytics wired in.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Launch & Optimize',
-		'description' => '&ndash; QA, redirects, performance, training, A/B roadmap.',
+		'title'       => __( 'Launch, QA, & Optimize', 'nw-avada-like' ),
+		'description' => __( 'Performance tuning, accessibility checks, redirect mapping, and an optimization roadmap for the next 90 days.', 'nw-avada-like' ),
 	],
 ];
 ?>
-<section class="nx-section nx-section--process" id="process" style="scroll-margin-top: 100px;">
-	<div class="nx-section__inner">
-		<div class="nx-section__content">
-			<header class="nx-section__header">
-				<h2 class="nx-section__title">Our Process (Fast. Clear. No Guesswork.)</h2>
-			</header>
-			<ol class="nx-step-list" role="list">
-				<?php foreach ( $steps as $step ) : ?>
-					<li class="nx-step-list__item">
-						<h3 class="nx-step-list__title"><?php echo esc_html( $step['title'] ); ?></h3>
-						<p class="nx-step-list__description"><?php echo wp_kses_post( $step['description'] ); ?></p>
-					</li>
-				<?php endforeach; ?>
-			</ol>
-			<p class="nx-section__note">Note: Typical timeline: 2&ndash;5 weeks.</p>
-			<div class="nx-section__actions">
-				<a class="nx-btn nx-btn--primary" href="#final-cta">Book a 15-Minute Intro Call &rarr;</a>
+<section class="nx-section" id="process" style="scroll-margin-top: 96px;">
+	<div class="nx-container">
+		<div class="nx-grid nx-grid--2">
+			<div>
+				<header class="nx-section__header">
+					<h2 class="nx-h2"><?php esc_html_e( 'Process: Fast, Transparent, No Guesswork', 'nw-avada-like' ); ?></h2>
+					<p class="nx-lead"><?php esc_html_e( 'Every phase is documented in ClickUp so you always know status, owner, and next deliverable.', 'nw-avada-like' ); ?></p>
+				</header>
+				<div class="nx-steps">
+					<?php foreach ( $steps as $step ) : ?>
+						<article class="nx-step">
+							<h3><?php echo esc_html( $step['title'] ); ?></h3>
+							<p><?php echo esc_html( $step['description'] ); ?></p>
+						</article>
+					<?php endforeach; ?>
+				</div>
+				<p class="nx-note"><?php esc_html_e( 'Typical timeline: 2–5 weeks depending on complexity.', 'nw-avada-like' ); ?></p>
+				<div class="nx-actions">
+					<a class="nx-btn nx-btn--primary" href="#final-cta"><?php esc_html_e( 'Book a 15-Minute Intro Call', 'nw-avada-like' ); ?></a>
+					<a class="nx-btn nx-btn--ghost" href="#packages"><?php esc_html_e( 'Compare Packages', 'nw-avada-like' ); ?></a>
+				</div>
 			</div>
-		</div>
-		<div class="nx-section__media">
-			<?php
-			if ( function_exists( 'nx_render_section_image' ) ) {
-				nx_render_section_image(
-					'nx_img_process_visual',
-					'Process visualization mockup',
-					[
-						'class'      => 'nx-section__image',
-						'width'      => 960,
-						'height'     => 720,
-						'min_height' => 320,
-					]
-				);
-			}
-			?>
+			<div>
+				<?php
+				if ( function_exists( 'nx_render_section_image' ) ) {
+					nx_render_section_image(
+						'nx_img_process_visual',
+						__( 'Timeline and workflow visual', 'nw-avada-like' ),
+						[
+							'class'      => '',
+							'width'      => 1200,
+							'height'     => 900,
+							'min_height' => 360,
+						]
+					);
+				}
+				?>
+			</div>
 		</div>
 	</div>
 </section>

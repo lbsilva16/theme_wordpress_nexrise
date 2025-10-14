@@ -11,43 +11,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $projects = [
 	[
-		'heading'     => 'Whitman & Associates (Law) &mdash; +52% consultation requests',
+		'title'       => __( 'Whitman & Associates', 'nw-avada-like' ),
+		'result'      => __( '+52% consultation requests', 'nw-avada-like' ),
+		'category'    => __( 'Law Firm Website', 'nw-avada-like' ),
 		'image_field' => 'nx_img_portfolio_1',
-		'alt'         => 'Whitman & Associates website preview',
+		'alt'         => __( 'Whitman & Associates website mockup', 'nw-avada-like' ),
 	],
 	[
-		'heading'     => 'Miller Air & Heating (HVAC) &mdash; +31% booked service calls',
+		'title'       => __( 'Miller Air & Heating', 'nw-avada-like' ),
+		'result'      => __( '+31% booked service calls', 'nw-avada-like' ),
+		'category'    => __( 'HVAC Lead Gen', 'nw-avada-like' ),
 		'image_field' => 'nx_img_portfolio_2',
-		'alt'         => 'Miller Air & Heating website preview',
+		'alt'         => __( 'Miller Air & Heating landing page mockup', 'nw-avada-like' ),
 	],
 	[
-		'heading'     => 'Oak & Ember (Home Goods) &mdash; +24% checkout completion',
+		'title'       => __( 'Oak & Ember', 'nw-avada-like' ),
+		'result'      => __( '+24% checkout completion', 'nw-avada-like' ),
+		'category'    => __( 'Direct-to-Consumer eCommerce', 'nw-avada-like' ),
 		'image_field' => 'nx_img_portfolio_3',
-		'alt'         => 'Oak & Ember ecommerce website preview',
+		'alt'         => __( 'Oak & Ember ecommerce website mockup', 'nw-avada-like' ),
 	],
 	[
-		'heading'     => 'BlueFin Fitness (Services) &mdash; 2.1&times; lead volume from paid traffic',
+		'title'       => __( 'BlueFin Fitness', 'nw-avada-like' ),
+		'result'      => __( '2.1× lead volume from paid campaigns', 'nw-avada-like' ),
+		'category'    => __( 'Service-Based Business', 'nw-avada-like' ),
 		'image_field' => 'nx_img_portfolio_4',
-		'alt'         => 'BlueFin Fitness website preview',
+		'alt'         => __( 'BlueFin Fitness marketing website mockup', 'nw-avada-like' ),
 	],
 ];
 ?>
-<section class="nx-section nx-section--portfolio" id="portfolio-showcase" style="scroll-margin-top: 100px;">
-	<div class="nx-section__inner">
+<section class="nx-section" id="portfolio-showcase" style="scroll-margin-top: 96px;">
+	<div class="nx-container">
 		<header class="nx-section__header">
-			<h2 class="nx-section__title">Recent Work</h2>
+			<h2 class="nx-h2"><?php esc_html_e( 'Recent Launches Driving Real Revenue', 'nw-avada-like' ); ?></h2>
+			<p class="nx-lead"><?php esc_html_e( 'High-converting WordPress builds for legal, home services, eCommerce, and expert brands.', 'nw-avada-like' ); ?></p>
 		</header>
-		<div class="nx-card-grid nx-card-grid--portfolio">
+		<div class="nx-tiles">
 			<?php foreach ( $projects as $project ) : ?>
-				<article class="nx-card nx-card--project">
-					<div class="nx-card__media">
+				<article class="nx-card nx-card--hover">
+					<figure class="nx-tile">
 						<?php
 						if ( function_exists( 'nx_render_section_image' ) ) {
 							nx_render_section_image(
 								$project['image_field'],
 								$project['alt'],
 								[
-									'class'      => 'nx-card__image',
+									'class'      => '',
 									'width'      => 960,
 									'height'     => 640,
 									'min_height' => 320,
@@ -55,15 +64,18 @@ $projects = [
 							);
 						}
 						?>
-					</div>
-					<div class="nx-card__body">
-						<h3 class="nx-card__title"><?php echo wp_kses_post( $project['heading'] ); ?></h3>
-					</div>
+						<figcaption>
+							<strong><?php echo esc_html( $project['title'] ); ?></strong><br>
+							<span><?php echo esc_html( $project['category'] ); ?></span><br>
+							<em><?php echo esc_html( $project['result'] ); ?></em>
+						</figcaption>
+					</figure>
 				</article>
 			<?php endforeach; ?>
 		</div>
-		<div class="nx-section__actions">
-			<a class="nx-btn nx-btn--primary" href="#final-cta">View Portfolio</a>
+		<div class="nx-actions">
+			<a class="nx-btn nx-btn--primary" href="#final-cta"><?php esc_html_e( 'Book a Portfolio Walkthrough', 'nw-avada-like' ); ?></a>
+			<a class="nx-btn nx-btn--ghost" href="#faq"><?php esc_html_e( 'See How Engagements Work', 'nw-avada-like' ); ?></a>
 		</div>
 	</div>
 </section>

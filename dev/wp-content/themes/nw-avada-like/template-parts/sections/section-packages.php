@@ -11,39 +11,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $packages = [
 	[
-		'name'        => 'Landing Page',
-		'price'       => 'from $1,200',
-		'description' => 'Conversion-focused, copy assist, analytics setup, 1 round of revisions.',
+		'name'     => __( 'Launch Pad', 'nw-avada-like' ),
+		'price'    => __( 'From $1,200', 'nw-avada-like' ),
+		'summary'  => __( 'High-converting single-page experience with rapid turnaround.', 'nw-avada-like' ),
+		'features' => [
+			__( 'Conversion copy polish (1 round)', 'nw-avada-like' ),
+			__( 'Responsive page design + animations', 'nw-avada-like' ),
+			__( 'Analytics, pixels, and lead routing setup', 'nw-avada-like' ),
+		],
 	],
 	[
-		'name'        => 'Business Website',
-		'price'       => 'from $2,900',
-		'description' => '5&ndash;8 pages, services, blog, intake/booking, on-page SEO basics.',
+		'name'     => __( 'Growth Site', 'nw-avada-like' ),
+		'price'    => __( 'From $2,900', 'nw-avada-like' ),
+		'summary'  => __( '5–8 page marketing site built to educate, nurture, and convert.', 'nw-avada-like' ),
+		'features' => [
+			__( 'Conversion strategy workshop & sitemap', 'nw-avada-like' ),
+			__( 'Service, about, resources, and blog templates', 'nw-avada-like' ),
+			__( 'On-page SEO, schema, and blog setup', 'nw-avada-like' ),
+		],
 	],
 	[
-		'name'        => 'Online Store (WooCommerce)',
-		'price'       => 'from $4,900',
-		'description' => 'Product templates, Stripe/PayPal, tax &amp; shipping, checkout optimization.',
+		'name'     => __( 'Commerce Engine', 'nw-avada-like' ),
+		'price'    => __( 'From $4,900', 'nw-avada-like' ),
+		'summary'  => __( 'WooCommerce storefront optimized for high-intent buyers.', 'nw-avada-like' ),
+		'features' => [
+			__( 'Product, category, and landing page templates', 'nw-avada-like' ),
+			__( 'Checkout optimization & payment gateways', 'nw-avada-like' ),
+			__( 'Email automation, CRM, and fulfillment setup', 'nw-avada-like' ),
+		],
 	],
 ];
 ?>
-<section class="nx-section nx-section--packages" id="packages" style="scroll-margin-top: 100px;">
-	<div class="nx-section__inner">
+<section class="nx-section" id="packages" style="scroll-margin-top: 96px;">
+	<div class="nx-container">
 		<header class="nx-section__header">
-			<h2 class="nx-section__title">Clear Packages, Built Around Your Goals</h2>
+			<h2 class="nx-h2"><?php esc_html_e( 'Packages Geared for ROI', 'nw-avada-like' ); ?></h2>
+			<p class="nx-lead"><?php esc_html_e( 'Pick the lane that matches your goals—then we tailor scope, integrations, and team enablement.', 'nw-avada-like' ); ?></p>
 		</header>
-		<div class="nx-card-grid nx-card-grid--packages">
+		<div class="nx-pricing">
 			<?php foreach ( $packages as $package ) : ?>
-				<article class="nx-card nx-card--package">
-					<h3 class="nx-card__title"><?php echo esc_html( $package['name'] ); ?></h3>
-					<p class="nx-card__price"><?php echo esc_html( $package['price'] ); ?></p>
-					<p class="nx-card__description"><?php echo wp_kses_post( $package['description'] ); ?></p>
+				<article class="nx-price">
+					<h3><?php echo esc_html( $package['name'] ); ?></h3>
+					<p class="amt"><?php echo esc_html( $package['price'] ); ?></p>
+					<p><?php echo esc_html( $package['summary'] ); ?></p>
+					<ul>
+						<?php foreach ( $package['features'] as $feature ) : ?>
+							<li><?php echo esc_html( $feature ); ?></li>
+						<?php endforeach; ?>
+					</ul>
+					<a class="nx-btn nx-btn--primary" href="#final-cta"><?php esc_html_e( 'Request Scope & Timeline', 'nw-avada-like' ); ?></a>
 				</article>
 			<?php endforeach; ?>
 		</div>
-		<p class="nx-section__note">Note: Final price depends on scope and integrations. Payment plans available.</p>
-		<div class="nx-section__actions">
-			<a class="nx-btn nx-btn--primary" href="#final-cta">Get a Tailored Quote</a>
-		</div>
+		<p class="nx-note"><?php esc_html_e( 'Final investment depends on integrations, content volume, and compliance requirements. Flexible payment plans available.', 'nw-avada-like' ); ?></p>
 	</div>
 </section>

@@ -11,47 +11,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $faqs = [
 	[
-		'question' => 'How long does it take?',
-		'answer'   => 'Most projects launch within 2&ndash;5 weeks. We confirm deliverables, feedback windows, and launch date during kickoff.',
+		'question' => __( 'How long does it take to launch?', 'nw-avada-like' ),
+		'answer'   => __( 'Most builds go live within 2–5 weeks. We lock milestones, owner, and review windows during kickoff so there are no surprises.', 'nw-avada-like' ),
 	],
 	[
-		'question' => 'Can you write the copy?',
-		'answer'   => 'Yes. Our strategists produce persuasive messaging, and you review every word before build-out.',
+		'question' => __( 'Will you help with copy and positioning?', 'nw-avada-like' ),
+		'answer'   => __( 'Absolutely. Our strategists produce conversion-focused copy, then your team reviews and approves before we move into build-out.', 'nw-avada-like' ),
 	],
 	[
-		'question' => 'Do you migrate my old site?',
-		'answer'   => 'We handle full migrations, including domain updates, redirects, and content imports without downtime.',
+		'question' => __( 'Can you migrate our existing site without downtime?', 'nw-avada-like' ),
+		'answer'   => __( 'Yes. We handle backups, staging, redirects, DNS updates, and QA so the transition is smooth for both SEO and visitors.', 'nw-avada-like' ),
 	],
 	[
-		'question' => 'What about hosting?',
-		'answer'   => 'We work with your host or recommend fast, secure options. We configure caching, SSL, and backups for launch.',
+		'question' => __( 'What about hosting and security?', 'nw-avada-like' ),
+		'answer'   => __( 'We work with your provider or recommend high-performance hosting, then configure SSL, caching, WAF, and monitoring.', 'nw-avada-like' ),
 	],
 	[
-		'question' => 'Is training included?',
-		'answer'   => 'Every launch includes recorded walkthroughs plus live training so your team can update content confidently.',
+		'question' => __( 'Is training included after launch?', 'nw-avada-like' ),
+		'answer'   => __( 'Every engagement includes recorded walkthroughs, SOPs, and a live training session so your team can manage content confidently.', 'nw-avada-like' ),
 	],
 	[
-		'question' => 'What if I need changes later?',
-		'answer'   => 'Choose a care plan for ongoing improvements or request one-off updates. We stay on call as your growth partner.',
+		'question' => __( 'What if we need updates later?', 'nw-avada-like' ),
+		'answer'   => __( 'Pick a care plan for ongoing improvements or request ad-hoc support. We stay available as your retained web team.', 'nw-avada-like' ),
 	],
 ];
 ?>
-<section class="nx-section nx-section--faq" id="faq" style="scroll-margin-top: 100px;">
-	<div class="nx-section__inner">
+<section class="nx-section" id="faq" style="scroll-margin-top: 96px;">
+	<div class="nx-container">
 		<header class="nx-section__header">
-			<h2 class="nx-section__title">Frequently Asked Questions</h2>
+			<h2 class="nx-h2"><?php esc_html_e( 'Frequently Asked Questions', 'nw-avada-like' ); ?></h2>
+			<p class="nx-lead"><?php esc_html_e( 'Transparent answers before you book a call. Need something else? Reach out and we will add it.', 'nw-avada-like' ); ?></p>
 		</header>
-		<div class="nx-accordion">
-			<?php foreach ( $faqs as $index => $faq ) : ?>
-				<details class="nx-accordion__item" <?php echo 0 === $index ? 'open' : ''; ?>>
-					<summary class="nx-accordion__summary">
-						<span class="nx-accordion__question"><?php echo esc_html( $faq['question'] ); ?></span>
-					</summary>
-					<div class="nx-accordion__content">
-						<p><?php echo wp_kses_post( $faq['answer'] ); ?></p>
-					</div>
-				</details>
-			<?php endforeach; ?>
-		</div>
+		<?php foreach ( $faqs as $index => $faq ) : ?>
+			<details <?php echo 0 === $index ? 'open' : ''; ?>>
+				<summary><?php echo esc_html( $faq['question'] ); ?></summary>
+				<p><?php echo esc_html( $faq['answer'] ); ?></p>
+			</details>
+		<?php endforeach; ?>
 	</div>
 </section>

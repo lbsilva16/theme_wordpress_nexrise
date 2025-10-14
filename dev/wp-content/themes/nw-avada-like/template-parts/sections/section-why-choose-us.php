@@ -11,33 +11,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $reasons = [
 	[
-		'title'       => 'Strategy First',
-		'description' => 'Clear sitemap, persuasive messaging, and conversion flows.',
+		'title'       => __( 'Conversion Roadmaps', 'nw-avada-like' ),
+		'description' => __( 'We audit your funnel, define success metrics, and align stakeholders before design begins.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Conversion Design',
-		'description' => 'On-brand UI, strong CTAs, proof blocks, and offer clarity.',
+		'title'       => __( 'Revenue-Ready UI', 'nw-avada-like' ),
+		'description' => __( 'Premium layouts, persuasive copy blocks, and frictionless CTAs built to turn visitors into buyers.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Speed & SEO',
-		'description' => 'Core Web Vitals, clean markup, schema, and fast hosting setup.',
+		'title'       => __( 'Technical Excellence', 'nw-avada-like' ),
+		'description' => __( 'Core Web Vitals, schema markup, ADA-conscious components, and scalable WordPress architecture.', 'nw-avada-like' ),
 	],
 	[
-		'title'       => 'Ownership & Support',
-		'description' => 'You own the site; we train your team and stay on call.',
+		'title'       => __( 'Trusted Partnership', 'nw-avada-like' ),
+		'description' => __( 'Documentation, team training, and ongoing support so you stay confident post-launch.', 'nw-avada-like' ),
 	],
 ];
 ?>
-<section class="nx-section nx-section--why-choose-us" id="why-choose-us" style="scroll-margin-top: 100px;">
-	<div class="nx-section__inner">
+<section class="nx-section" id="why-choose-us" style="scroll-margin-top: 96px;">
+	<div class="nx-container">
 		<header class="nx-section__header">
-			<h2 class="nx-section__title">Why Businesses Choose NexRise</h2>
+			<h2 class="nx-h2"><?php esc_html_e( 'Why Growth-Focused Teams Choose NexRise', 'nw-avada-like' ); ?></h2>
+			<p class="nx-lead"><?php esc_html_e( 'You get a site engineered to convert leads, load fast, and scale without stress.', 'nw-avada-like' ); ?></p>
 		</header>
-		<div class="nx-card-grid nx-card-grid--quarters">
+		<div class="nx-grid nx-grid--2">
 			<?php foreach ( $reasons as $reason ) : ?>
-				<article class="nx-card nx-card--reason">
-					<h3 class="nx-card__title"><?php echo esc_html( $reason['title'] ); ?></h3>
-					<p class="nx-card__description"><?php echo esc_html( $reason['description'] ); ?></p>
+				<article class="nx-card nx-card--hover">
+					<h3><?php echo esc_html( $reason['title'] ); ?></h3>
+					<p><?php echo esc_html( $reason['description'] ); ?></p>
 				</article>
 			<?php endforeach; ?>
 		</div>

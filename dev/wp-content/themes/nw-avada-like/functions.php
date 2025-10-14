@@ -59,6 +59,16 @@ if ( ! function_exists( 'nw_avada_like_scripts' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'nw_avada_like_scripts' );
 
+// Enqueue NexRise theme assets.
+add_action(
+	'wp_enqueue_scripts',
+	function () {
+		$ver = wp_get_theme()->get( 'Version' ) ?: '1.0.0';
+		wp_enqueue_style( 'nx-css', get_template_directory_uri() . '/assets/css/nx.css', [], $ver );
+		wp_enqueue_script( 'nx-js', get_template_directory_uri() . '/assets/js/nx.js', [], $ver, true );
+	}
+);
+
 if ( ! function_exists( 'nw_avada_like_fallback_menu' ) ) {
 	/**
 	 * Fallback simples caso nenhum menu esteja atribuido.
@@ -74,4 +84,5 @@ if ( ! function_exists( 'nw_avada_like_fallback_menu' ) ) {
 	}
 }
 
+// Opcional: incluir Customizer de URLs (placeholders de imagens das seções).
 require_once get_template_directory() . '/inc/customizer-sections.php';
