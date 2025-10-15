@@ -51,6 +51,96 @@ if (window.IntersectionObserver && revealEls.length) {
   go(0);
 })();
 
+// Results counters
+(function(){
+  const section = document.querySelector('.results-section');
+  if(!section) return;
+
+  const counters = [...section.querySelectorAll('.result-number')];
+  if(!counters.length) return;
+
+  const animateCounter = (element, target, duration = 2000, suffix = '') => {
+    const startValue = 0;
+    const startTime = performance.now();
+    element.classList.add('counting');
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentValue = Math.floor(startValue + (target - startValue) * progress);
+      element.textContent = `${currentValue}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+        return;
+      }
+
+      element.textContent = `${target}${suffix}`;
+      setTimeout(()=>element.classList.remove('counting'), 500);
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const startCounters = () => {
+    counters.forEach((counter)=>{
+      const target = Number.parseInt(counter.getAttribute('data-target') || '0', 10);
+      const suffix = counter.getAttribute('data-suffix') || '';
+      if (Number.isNaN(target)) {
+        return;
+      }
+      counter.textContent = `0${suffix}`;
+      animateCounter(counter, target, 2000, suffix);
+    });
+  };
+
+  const randomCandidates = counters.filter((counter)=>counter.dataset.random === 'true');
+
+  const randomUpdate = () => {
+    if (!randomCandidates.length) return;
+    const randomCounter = randomCandidates[Math.floor(Math.random() * randomCandidates.length)];
+    const currentTarget = Number.parseInt(randomCounter.getAttribute('data-target') || '0', 10);
+    const suffix = randomCounter.getAttribute('data-suffix') || '';
+    if (Number.isNaN(currentTarget)) {
+      return;
+    }
+    const variation = Math.floor(Math.random() * 3);
+    const newTarget = currentTarget + variation;
+    randomCounter.setAttribute('data-target', String(newTarget));
+    animateCounter(randomCounter, newTarget, 800, suffix);
+  };
+
+  let hasStarted = false;
+  let randomTimer = null;
+
+  const kickOff = () => {
+    if (hasStarted) return;
+    hasStarted = true;
+    startCounters();
+    setTimeout(()=>{
+    if (randomCandidates.length && !randomTimer) {
+        randomTimer = setInterval(randomUpdate, 8000);
+      }
+    }, 3000);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    kickOff();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if (entry.isIntersecting) {
+        kickOff();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(section);
+})();
+
 // Scroll spy for primary navigation
 (function(){
   if(!window.IntersectionObserver) return;

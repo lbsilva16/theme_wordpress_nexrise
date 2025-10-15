@@ -34,7 +34,6 @@ if ( ! function_exists( 'nx_register_section_media_customizer' ) ) {
 		);
 
 		$fields = [
-			'nx_img_performance_dashboard' => __( 'Performance dashboard image URL', 'nw-avada-like' ),
 			'nx_img_portfolio_1'           => __( 'Portfolio item #1 image URL', 'nw-avada-like' ),
 			'nx_img_portfolio_2'           => __( 'Portfolio item #2 image URL', 'nw-avada-like' ),
 			'nx_img_portfolio_3'           => __( 'Portfolio item #3 image URL', 'nw-avada-like' ),
