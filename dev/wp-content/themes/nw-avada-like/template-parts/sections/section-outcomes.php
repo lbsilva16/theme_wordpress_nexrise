@@ -55,12 +55,12 @@ $counters = [
 		</div>
 
 		<div class="cta-container">
-			<a href="#final-cta" class="cta-button"><?php esc_html_e( 'Get a Free Site Plan', 'nw-avada-like' ); ?></a>
-			<a href="#final-cta" class="cta-button secondary"><?php esc_html_e( 'See How We Measure', 'nw-avada-like' ); ?></a>
+			<a href="#final-cta" class="cta-button"><?php esc_html_e( 'Let\'s Start Now', 'nw-avada-like' ); ?></a>
+			<a href="#final-cta" class="cta-button secondary"><?php esc_html_e( 'Get a free Quote', 'nw-avada-like' ); ?></a>
 
 			<div class="live-indicator">
 				<span class="live-dot" aria-hidden="true"></span>
-				<span><?php esc_html_e( 'Each project is unique-but our commitment to results never changes.', 'nw-avada-like' ); ?></span>
+				<span><?php esc_html_e( 'Each project is unique-but our commitment to results never changes', 'nw-avada-like' ); ?></span>
 			</div>
 		</div>
 	</div>
