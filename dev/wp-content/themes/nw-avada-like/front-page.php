@@ -8,7 +8,7 @@
 get_header();
 ?>
 <main id="main-content" class="site-main">
-  <section class="hero" data-hero>
+  <section id="home" class="hero" data-hero>
     <div class="section-wrapper hero__inner">
       <div class="hero__content">
         <p class="hero__eyebrow"><?php esc_html_e( 'Trusted by entrepreneurs and small businesses across the US', 'nw-avada-like' ); ?></p>
@@ -95,7 +95,7 @@ get_header();
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
+  <section class="portfolio" id="featured-work">
     <div class="section-wrapper portfolio__inner">
       <header class="section-heading">
         <h2><?php esc_html_e( 'From Law Firms to Online Stores - We Design for Growth.', 'nw-avada-like' ); ?></h2>
@@ -121,6 +121,9 @@ get_header();
   get_template_part( 'template-parts/sections/section-outcomes' );
   get_template_part( 'template-parts/sections/section-portfolio' );
   get_template_part( 'template-parts/sections/section-process' );
+  ?>
+  <div id="solutions" class="section-anchor" aria-hidden="true" tabindex="-1"></div>
+  <?php
   get_template_part( 'template-parts/sections/section-packages' );
   get_template_part( 'template-parts/sections/section-addons' );
   get_template_part( 'template-parts/sections/section-care-plans' );

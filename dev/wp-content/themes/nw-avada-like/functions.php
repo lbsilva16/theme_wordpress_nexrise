@@ -75,14 +75,51 @@ if ( ! function_exists( 'nw_avada_like_fallback_menu' ) ) {
 	 */
 	function nw_avada_like_fallback_menu() {
 		echo '<ul class="primary-nav__list">';
-		echo '<li class="menu-item"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'nw-avada-like' ) . '</a></li>';
-		echo '<li class="menu-item"><a href="#why-choose-us">' . esc_html__( 'Why Choose Us', 'nw-avada-like' ) . '</a></li>';
-		echo '<li class="menu-item"><a href="#packages">' . esc_html__( 'Packages', 'nw-avada-like' ) . '</a></li>';
-		echo '<li class="menu-item"><a href="#faq">' . esc_html__( 'FAQ', 'nw-avada-like' ) . '</a></li>';
-		echo '<li class="menu-item"><a href="#final-cta">' . esc_html__( 'Contact', 'nw-avada-like' ) . '</a></li>';
+		echo nw_avada_like_primary_menu_markup();
 		echo '</ul>';
 	}
 }
+
+if ( ! function_exists( 'nw_avada_like_primary_menu_markup' ) ) {
+	/**
+	 * Retorna o HTML padrao dos itens do menu primario.
+	 */
+	function nw_avada_like_primary_menu_markup(): string {
+		$base_url = home_url( '/' );
+		ob_start();
+		?>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#home' ); ?>"><?php echo esc_html__( 'Home', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#why-choose-us' ); ?>"><?php echo esc_html__( 'Why Us', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#outcomes' ); ?>"><?php echo esc_html__( 'Results', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#portfolio' ); ?>"><?php echo esc_html__( 'Portfolio', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#process' ); ?>"><?php echo esc_html__( 'Process', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item menu-item-has-children">
+			<a href="<?php echo esc_url( $base_url . '#solutions' ); ?>"><?php echo esc_html__( 'Solutions', 'nw-avada-like' ); ?></a>
+			<ul class="sub-menu">
+				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#packages' ); ?>"><?php echo esc_html__( 'Packages', 'nw-avada-like' ); ?></a></li>
+				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#addons' ); ?>"><?php echo esc_html__( 'Add-Ons', 'nw-avada-like' ); ?></a></li>
+				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#care-plans' ); ?>"><?php echo esc_html__( 'Care Plans', 'nw-avada-like' ); ?></a></li>
+			</ul>
+		</li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#testimonials' ); ?>"><?php echo esc_html__( 'Testimonials', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#faq' ); ?>"><?php echo esc_html__( 'FAQ', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#final-cta' ); ?>"><?php echo esc_html__( 'Contact', 'nw-avada-like' ); ?></a></li>
+		<?php
+		return trim( ob_get_clean() );
+	}
+}
+
+add_filter(
+	'wp_nav_menu_items',
+	function ( $items, $args ) {
+		if ( isset( $args->theme_location ) && 'primary' === $args->theme_location ) {
+			return nw_avada_like_primary_menu_markup();
+		}
+		return $items;
+	},
+	10,
+	2
+);
 
 // Opcional: incluir Customizer de URLs (placeholders de imagens das seções).
 require_once get_template_directory() . '/inc/customizer-sections.php';

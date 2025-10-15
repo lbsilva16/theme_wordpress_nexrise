@@ -13,6 +13,14 @@ main {
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 20%, #f8fafc 80%, #ffffff 100%);
 }
 
+.section-anchor {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: -1px;
+  scroll-margin-top: var(--header-height);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -142,6 +150,36 @@ body.is-nav-open {
 .primary-nav__list .menu-item:focus-within > a,
 .primary-nav__list .menu-item:hover > a {
   color: var(--color-primary);
+}
+
+.primary-nav__list .menu-item.is-active > a,
+.primary-nav__list .menu-item.has-active-child > a,
+.primary-nav__list .sub-menu .menu-item.is-active > a {
+  color: var(--color-primary);
+}
+
+.primary-nav__list > li > a {
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+.primary-nav__list > li > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-grad-start), var(--color-grad-end));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.primary-nav__list > li.is-active > a::after,
+.primary-nav__list > li.has-active-child > a::after {
+  transform: scaleX(1);
 }
 
 .primary-nav__list .sub-menu {
@@ -958,6 +996,8 @@ body.is-nav-open .global-header__toggle-box::after {
     background: rgba(15, 23, 42, 0.92);
     padding: 2.5rem 2rem 3rem;
     display: none;
+    overflow-y: auto;
+    max-height: calc(100vh - var(--header-height));
   }
 
   body.is-nav-open .global-header__nav {
@@ -970,9 +1010,18 @@ body.is-nav-open .global-header__toggle-box::after {
     gap: 1.25rem;
   }
 
+  .primary-nav__list > li > a::after {
+    display: none;
+  }
+
   .primary-nav__list a {
     font-size: 1.3rem;
     color: #f8fafc;
+  }
+
+  .primary-nav__list .menu-item.is-active > a,
+  .primary-nav__list .menu-item.has-active-child > a {
+    color: #ffffff;
   }
 
   .primary-nav__list .sub-menu {
@@ -1147,4 +1196,3 @@ body.is-nav-open .global-header__toggle-box::after {
 body.home .global-header + .site-main {
   padding-top: 0;
 }
-
