@@ -25,7 +25,7 @@ $addons = [
 <section id="addons" class="nx-section" style="scroll-margin-top: 96px;">
 	<div class="nx-container">
 		<span class="nx-kicker"><?php esc_html_e( 'Add-ons', 'nw-avada-like' ); ?></span>
-		<h2 class="nx-h2"><?php esc_html_e( 'Need More Firepower? Plug In Add-Ons Anytime', 'nw-avada-like' ); ?></h2>
+		<h2 class="nx-h2"><?php esc_html_e( 'Enhance Your Site Anytime with Powerful Add-Ons', 'nw-avada-like' ); ?></h2>
 		<p class="nx-lead"><?php esc_html_e( 'Stack integrations that accelerate sales, marketing, ops, and customer success.', 'nw-avada-like' ); ?></p>
 
 		<ul class="nx-chip-list" role="list">
@@ -40,3 +40,13 @@ $addons = [
 		</ul>
 	</div>
 </section>
+
+<style>
+  /* Add-ons: alinhar com padrão das demais seções e melhorar responsividade */
+  #addons .nx-container{ text-align:center; }
+  #addons .nx-lead{ margin:0 auto; }
+  #addons .nx-chip-list{ justify-content:center; }
+  @media (max-width: 560px){
+    #addons .nx-chip{ padding:8px 12px; font-size:14px; }
+  }
+</style>
