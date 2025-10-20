@@ -66,6 +66,23 @@ add_action(
 		$ver = wp_get_theme()->get( 'Version' ) ?: '1.0.0';
 		wp_enqueue_style( 'nx-css', get_template_directory_uri() . '/assets/css/nx.css', [], $ver );
 		wp_enqueue_script( 'nx-js', get_template_directory_uri() . '/assets/js/nx.js', [], $ver, true );
+
+		if ( is_front_page() ) {
+			wp_enqueue_style(
+				'nw-avada-like-packages',
+				get_template_directory_uri() . '/assets/css/packages.css',
+				[ 'nx-css' ],
+				$ver
+			);
+
+			wp_enqueue_script(
+				'nw-avada-like-packages',
+				get_template_directory_uri() . '/assets/js/packages.js',
+				[ 'nx-js' ],
+				$ver,
+				true
+			);
+		}
 	}
 );
 
