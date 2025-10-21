@@ -97,6 +97,21 @@ add_action(
 				$ver,
 				true
 			);
+
+			wp_enqueue_style(
+				'nw-avada-like-final-cta',
+				get_template_directory_uri() . '/assets/css/final-cta.css',
+				[ 'nx-css' ],
+				$ver
+			);
+
+			wp_enqueue_script(
+				'nw-avada-like-final-cta',
+				get_template_directory_uri() . '/assets/js/final-cta.js',
+				[ 'nx-js' ],
+				$ver,
+				true
+			);
 		}
 	}
 );
