@@ -69,6 +69,21 @@ add_action(
 
 		if ( is_front_page() ) {
 			wp_enqueue_style(
+				'nw-avada-like-faq',
+				get_template_directory_uri() . '/assets/css/faq.css',
+				[ 'nx-css' ],
+				$ver
+			);
+
+			wp_enqueue_script(
+				'nw-avada-like-faq',
+				get_template_directory_uri() . '/assets/js/faq.js',
+				[ 'nx-js' ],
+				$ver,
+				true
+			);
+
+			wp_enqueue_style(
 				'nw-avada-like-packages',
 				get_template_directory_uri() . '/assets/css/packages.css',
 				[ 'nx-css' ],

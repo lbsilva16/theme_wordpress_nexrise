@@ -54,13 +54,6 @@ body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,s
 .nx-step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:-12px;width:36px;height:36px;border-radius:50%;
   background:var(--nx-primary);color:#fff;display:grid;place-items:center;font-weight:800;box-shadow:var(--nx-shadow)}
 
-details{border:1px solid var(--nx-line);border-radius:12px;background:#fff;box-shadow:var(--nx-shadow)}
-details+details{margin-top:12px}
-summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700}
-summary::-webkit-details-marker{display:none}
-details[open] summary{border-bottom:1px solid var(--nx-line);background:#FBFCFF}
-details p{padding:16px 18px;margin:0;color:var(--nx-ink-2)}
-
 .nx-sticky-cta{position:fixed;inset:auto 0 12px;display:none;z-index:40}
 @media(max-width:768px){ .nx-sticky-cta{display:flex;justify-content:center}
   .nx-sticky-cta a{width:92%;padding:16px 18px} }

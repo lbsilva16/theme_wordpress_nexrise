@@ -11,13 +11,6 @@ document.addEventListener('click', (e)=>{
   window.scrollTo({top:y, behavior:'smooth'});
 });
 
-// FAQ: close siblings when opening one
-document.querySelectorAll('section#faq details summary')
-  .forEach(s => s.addEventListener('click', ()=>{
-    const cur = s.parentElement;
-    document.querySelectorAll('section#faq details').forEach(d=>{ if(d!==cur) d.removeAttribute('open'); });
-  }));
-
 // Reveal on scroll
 const revealEls = document.querySelectorAll('.reveal');
 if (window.IntersectionObserver && revealEls.length) {
