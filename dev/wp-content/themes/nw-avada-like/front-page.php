@@ -62,8 +62,8 @@ get_header();
 
         <!-- Botoes lado a lado -->
         <div class="hero__actions">
-          <a class="button button--primary button--large" href="#cta-final"><?php esc_html_e( 'Get My Website Today', 'nw-avada-like' ); ?></a>
-          <a class="button button--ghost button--large" href="#faq"><?php esc_html_e( 'Request a Free Quote', 'nw-avada-like' ); ?></a>
+          <a class="button button--primary button--large" href="https://wa.me/12813744411" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Get My Website Today', 'nw-avada-like' ); ?></a>
+          <a class="button button--ghost button--large" href="https://wa.me/12813744411" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Request a Free Quote', 'nw-avada-like' ); ?></a>
         </div>
       </div>
       <div class="hero__media">

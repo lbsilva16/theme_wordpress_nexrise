@@ -41,8 +41,8 @@
       ?>
     </nav>
     <div class="global-header__actions">
-      <a class="button button--ghost" href="https://avada.com/my-account/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'My Avada', 'nw-avada-like' ); ?></a>
-      <a class="button button--primary" href="https://avada.com/buy/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Buy Now', 'nw-avada-like' ); ?></a>
+      <a class="button button--ghost" href="#faq"><?php esc_html_e( 'FAQ', 'nw-avada-like' ); ?></a>
+      <a class="button button--primary" href="https://wa.me/12813744411" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'WhatsApp', 'nw-avada-like' ); ?></a>
     </div>
   </div>
 </header>
