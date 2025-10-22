@@ -20,7 +20,7 @@
     <div class="global-header__branding">
       <a class="global-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <!-- ESPACO PARA O LOGO: Adicione sua imagem em /assets/images/logo.png -->
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" alt="<?php esc_attr_e( 'Logo do Site', 'nw-avada-like' ); ?>" />
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ) ); ?>" alt="NEXRISE - We Build. You Rise." />
       </a>
     </div>
     <button class="global-header__toggle" type="button" aria-controls="primary-nav" aria-expanded="false">

@@ -135,13 +135,13 @@ if ( ! function_exists( 'nw_avada_like_primary_menu_markup' ) ) {
 		$base_url = home_url( '/' );
 		ob_start();
 		?>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#home' ); ?>"><?php echo esc_html__( 'Home', 'nw-avada-like' ); ?></a></li>
+		<li class="menu-item"><a href="<?php echo esc_url( $base_url ); ?>"><?php echo esc_html__( 'Home', 'nw-avada-like' ); ?></a></li>
 		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#why-choose-us' ); ?>"><?php echo esc_html__( 'Why Us', 'nw-avada-like' ); ?></a></li>
 		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#outcomes' ); ?>"><?php echo esc_html__( 'Results', 'nw-avada-like' ); ?></a></li>
 		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#portfolio' ); ?>"><?php echo esc_html__( 'Portfolio', 'nw-avada-like' ); ?></a></li>
 		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#process' ); ?>"><?php echo esc_html__( 'Process', 'nw-avada-like' ); ?></a></li>
 		<li class="menu-item menu-item-has-children">
-			<a href="<?php echo esc_url( $base_url . '#solutions' ); ?>"><?php echo esc_html__( 'Solutions', 'nw-avada-like' ); ?></a>
+			<a href="<?php echo esc_url( $base_url . '#solutions' ); ?>"><?php echo esc_html__( 'Pricing', 'nw-avada-like' ); ?></a>
 			<ul class="sub-menu">
 				<li class="menu-item">
 					<a href="<?php echo esc_url( $base_url . '#packages' ); ?>">

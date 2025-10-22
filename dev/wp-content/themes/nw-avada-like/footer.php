@@ -12,7 +12,7 @@
       <div class="site-footer__column site-footer__column--brand">
         <a class="site-footer__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
           <!-- ESPACO PARA O LOGO DO RODAPE: utilize /assets/images/logo-footer.png -->
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" alt="<?php esc_attr_e( 'Logo do Site', 'nw-avada-like' ); ?>">
+          <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ) ); ?>" alt="NEXRISE - We Build. You Rise.">
         </a>
         <p class="site-footer__description"><?php esc_html_e( 'Build anything, launch everywhere. Avada gives you the creative control to design experiences that convert.', 'nw-avada-like' ); ?></p>
       </div>

@@ -117,9 +117,37 @@ body.is-nav-open {
   padding: 1.25rem 0;
 }
 
+.global-header__branding {
+  display: flex;
+  align-items: center;
+}
+
 .global-header__branding img {
-  height: 40px;
+  height: 60px;
   width: auto;
+  max-width: 200px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.global-header__branding img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsividade para o logo */
+@media (max-width: 768px) {
+  .global-header__branding img {
+    height: 50px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .global-header__branding img {
+    height: 45px;
+    max-width: 120px;
+  }
 }
 
 .global-header__nav {
