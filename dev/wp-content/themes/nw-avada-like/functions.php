@@ -143,9 +143,51 @@ if ( ! function_exists( 'nw_avada_like_primary_menu_markup' ) ) {
 		<li class="menu-item menu-item-has-children">
 			<a href="<?php echo esc_url( $base_url . '#solutions' ); ?>"><?php echo esc_html__( 'Solutions', 'nw-avada-like' ); ?></a>
 			<ul class="sub-menu">
-				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#packages' ); ?>"><?php echo esc_html__( 'Packages', 'nw-avada-like' ); ?></a></li>
-				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#addons' ); ?>"><?php echo esc_html__( 'Add-Ons', 'nw-avada-like' ); ?></a></li>
-				<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#care-plans' ); ?>"><?php echo esc_html__( 'Care Plans', 'nw-avada-like' ); ?></a></li>
+				<li class="menu-item">
+					<a href="<?php echo esc_url( $base_url . '#packages' ); ?>">
+						<div class="sub-menu-icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M3 7H21L20 21H4L3 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M8 7V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M10 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M14 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div class="sub-menu-content">
+							<span class="sub-menu-title"><?php echo esc_html__( 'Packages', 'nw-avada-like' ); ?></span>
+							<span class="sub-menu-desc"><?php echo esc_html__( 'Complete solutions for your business', 'nw-avada-like' ); ?></span>
+						</div>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="<?php echo esc_url( $base_url . '#addons' ); ?>">
+						<div class="sub-menu-icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div class="sub-menu-content">
+							<span class="sub-menu-title"><?php echo esc_html__( 'Add-Ons', 'nw-avada-like' ); ?></span>
+							<span class="sub-menu-desc"><?php echo esc_html__( 'Enhance your experience with extras', 'nw-avada-like' ); ?></span>
+						</div>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="<?php echo esc_url( $base_url . '#care-plans' ); ?>">
+						<div class="sub-menu-icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M9 9L12 6L16 10L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div class="sub-menu-content">
+							<span class="sub-menu-title"><?php echo esc_html__( 'Growth Plans', 'nw-avada-like' ); ?></span>
+							<span class="sub-menu-desc"><?php echo esc_html__( 'Scale your business to the next level', 'nw-avada-like' ); ?></span>
+						</div>
+					</a>
+				</li>
 			</ul>
 		</li>
 		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#testimonials' ); ?>"><?php echo esc_html__( 'Testimonials', 'nw-avada-like' ); ?></a></li>
