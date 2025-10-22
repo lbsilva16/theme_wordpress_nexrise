@@ -47,6 +47,12 @@ if ( ! function_exists( 'nw_avada_like_scripts' ) ) {
 			[ 'nw-avada-like-style' ],
 			$theme_version
 		);
+		wp_enqueue_style(
+			'nw-avada-like-footer',
+			get_template_directory_uri() . '/assets/css/footer.css',
+			[ 'nw-avada-like-main' ],
+			$theme_version
+		);
 
 		wp_enqueue_script(
 			'nw-avada-like-main',

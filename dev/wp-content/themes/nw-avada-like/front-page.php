@@ -109,7 +109,7 @@ get_header();
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hvac-landing.png" alt="HVAC Landing Page">
         </div>
         <div class="container-imagem">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ecommerce-website.jpg" alt="E-commerce Website">
+          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-We-build-e-commerce-websites-that-turn-your-passion-into-profit-scaled-1.png" alt="E-commerce Website">
         </div>
       </div>
     </div>
