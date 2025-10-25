@@ -71,16 +71,16 @@ get_header();
           <div class="hero-media-slider__viewport">
             <div class="hero-media-slider__track" style="transform: translateX(0%);">
               <div class="hero-media-slider__slide is-active" aria-hidden="false">
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/We-create-your-online-store-so-you-can-focus-on-making-money.jpg" alt="We create your online store" class="hero__media-image">
+                <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/We-create-your-online-store-so-you-can-focus-on-making-money.jpg' ); ?>" alt="<?php esc_attr_e( 'We create your online store', 'nw-avada-like' ); ?>" class="hero__media-image">
               </div>
               <div class="hero-media-slider__slide" aria-hidden="true">
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/Turn-your-vision-into-a-sales-generating-reality.-We-build-websites-that-work.png" alt="Turn your vision into reality" class="hero__media-image">
+                <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/Turn-your-vision-into-a-sales-generating-reality.-We-build-websites-that-work.png' ); ?>" alt="<?php esc_attr_e( 'Turn your vision into reality', 'nw-avada-like' ); ?>" class="hero__media-image">
               </div>
               <div class="hero-media-slider__slide" aria-hidden="true">
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/Nexrise-we-help-you-grow.-Come-and-find-out-more.jpg" alt="Nexrise we help you grow" class="hero__media-image">
+                <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/Nexrise-we-help-you-grow.-Come-and-find-out-more.jpg' ); ?>" alt="<?php esc_attr_e( 'Nexrise we help you grow', 'nw-avada-like' ); ?>" class="hero__media-image">
               </div>
               <div class="hero-media-slider__slide" aria-hidden="true">
-                <img src="http://localhost:8000/wp-content/uploads/2025/10/Nexrise-We-build-your-store-you-build-your-fortune.jpg" alt="We build your store you build your fortune" class="hero__media-image">
+                <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/Nexrise-We-build-your-store-you-build-your-fortune.jpg' ); ?>" alt="<?php esc_attr_e( 'We build your store you build your fortune', 'nw-avada-like' ); ?>" class="hero__media-image">
               </div>
             </div>
           </div>
@@ -103,13 +103,13 @@ get_header();
       </header>
       <div class="portfolio__images">
         <div class="container-imagem">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/law-firm-landing.png" alt="Law Firm Landing Page">
+          <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/NexRise-%E2%80%94-Build-Your-Law-Firm-Landing-Page.png' ); ?>" alt="<?php esc_attr_e( 'Law Firm Landing Page', 'nw-avada-like' ); ?>">
         </div>
         <div class="container-imagem">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hvac-landing.png" alt="HVAC Landing Page">
+          <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/NexRise-%E2%80%94-Build-Your-HVAC-Landing-Page.png' ); ?>" alt="<?php esc_attr_e( 'HVAC Landing Page', 'nw-avada-like' ); ?>">
         </div>
         <div class="container-imagem">
-          <img src="http://localhost:8000/wp-content/uploads/2025/10/NexRise-We-build-e-commerce-websites-that-turn-your-passion-into-profit-scaled-1.png" alt="E-commerce Website">
+          <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/NexRise-We-build-e-commerce-websites-that-turn-your-passion-into-profit-scaled-1.png' ); ?>" alt="<?php esc_attr_e( 'E-commerce Website', 'nw-avada-like' ); ?>">
         </div>
       </div>
     </div>

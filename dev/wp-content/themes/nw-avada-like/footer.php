@@ -12,7 +12,16 @@
       <div class="nexrise-footer__brand">
         <div class="nexrise-footer__logo-container">
           <div class="nexrise-footer__logo">
-            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ) ); ?>" alt="<?php esc_attr_e( 'NEXRISE - We Build. You Rise.', 'nw-avada-like' ); ?>">
+            <?php
+            if ( has_custom_logo() ) {
+              $custom_logo_id = get_theme_mod( 'custom_logo' );
+              echo wp_get_attachment_image( $custom_logo_id, 'full', false, [ 'class' => 'nexrise-footer__logo-image' ] );
+            } else {
+              ?>
+              <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ); ?>" alt="<?php esc_attr_e( 'NEXRISE - We Build. You Rise.', 'nw-avada-like' ); ?>">
+              <?php
+            }
+            ?>
           </div>
           <div>
             <div class="nexrise-footer__logo-text"><?php esc_html_e( 'NEXRISE', 'nw-avada-like' ); ?></div>
@@ -48,18 +57,19 @@
         <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Stay in the loop', 'nw-avada-like' ); ?></h3>
         <div class="nexrise-footer__newsletter-box">
           <p class="nexrise-footer__newsletter-text">
-            <?php esc_html_e( 'Get our latest tips on web design, SEO, and digital marketing — straight to your inbox. No spam, just strategies that work.', 'nw-avada-like' ); ?>
+            <?php esc_html_e( 'Get our latest tips on web design, SEO, and digital marketing - straight to your inbox. No spam, just strategies that work.', 'nw-avada-like' ); ?>
           </p>
           <form class="nexrise-footer__form" action="#" method="post">
+            <?php wp_nonce_field( 'nw_avada_like_footer_optin', 'nw_avada_like_footer_nonce' ); ?>
             <div class="nexrise-footer__email-input-wrapper">
               <label class="visually-hidden" for="nexrise-footer-email"><?php esc_html_e( 'Digite seu email', 'nw-avada-like' ); ?></label>
               <input class="nexrise-footer__email-input" type="email" id="nexrise-footer-email" name="nexrise-footer-email" placeholder="<?php esc_attr_e( 'Enter your email', 'nw-avada-like' ); ?>" required>
             </div>
             <button class="nexrise-footer__subscribe-btn" type="submit"><?php esc_html_e( 'Subscribe Now', 'nw-avada-like' ); ?></button>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="nexrise-footer__social-section">
       <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Connect With Us', 'nw-avada-like' ); ?></h3>

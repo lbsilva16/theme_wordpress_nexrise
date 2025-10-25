@@ -1,0 +1,59 @@
+/* Editor styles for NW Avada Like theme */
+:root {
+  --nw-avada-like-color-text: #0f172a;
+  --nw-avada-like-color-primary: #4f46e5;
+  --nw-avada-like-color-secondary: #475569;
+  --nw-avada-like-font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --nw-avada-like-font-display: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.editor-styles-wrapper {
+  font-family: var(--nw-avada-like-font-body);
+  color: var(--nw-avada-like-color-text);
+  line-height: 1.6;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+  font-family: var(--nw-avada-like-font-display);
+  color: var(--nw-avada-like-color-text);
+  line-height: 1.2;
+}
+
+.editor-styles-wrapper a {
+  color: var(--nw-avada-like-color-primary);
+}
+
+.editor-styles-wrapper p.has-text-color,
+.editor-styles-wrapper h1.has-text-color,
+.editor-styles-wrapper h2.has-text-color,
+.editor-styles-wrapper h3.has-text-color,
+.editor-styles-wrapper h4.has-text-color,
+.editor-styles-wrapper h5.has-text-color,
+.editor-styles-wrapper h6.has-text-color {
+  color: inherit;
+}
+
+.editor-styles-wrapper .wp-block-quote {
+  border-left: 4px solid var(--nw-avada-like-color-primary);
+  padding-left: 1.25rem;
+  color: var(--nw-avada-like-color-secondary);
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+  background: var(--nw-avada-like-color-primary);
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.editor-styles-wrapper .wp-block-button__link:hover,
+.editor-styles-wrapper .wp-block-button__link:focus {
+  background: #4338ca;
+  transform: translateY(-1px);
+}

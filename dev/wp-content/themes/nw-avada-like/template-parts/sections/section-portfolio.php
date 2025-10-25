@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $cards = [
 	[
-		'image'        => 'http://localhost:8000/wp-content/uploads/2025/10/Power-your-business-with-a-NexRise-website.png',
+		'image'        => 'https://gonexrise.com/wp-content/uploads/2025/10/Power-your-business-with-a-NexRise-website.png',
 		'image_alt'    => __( 'J&C Funeral Home website preview', 'nw-avada-like' ),
 		'overlay_title'       => __( 'J&C Funeral Home', 'nw-avada-like' ),
 		'overlay_description' => __( 'A dignified and compassionate online presence for a trusted funeral home.', 'nw-avada-like' ),
@@ -24,7 +24,7 @@ $cards = [
 		],
 	],
 	[
-		'image'        => 'http://localhost:8000/wp-content/uploads/2025/10/They-trusted-NexRise.-Now-its-your-turn.png',
+		'image'        => 'https://gonexrise.com/wp-content/uploads/2025/10/They-trusted-NexRise.-Now-its-your-turn.png',
 		'image_alt'    => __( 'ArteCas Furniture website preview', 'nw-avada-like' ),
 		'overlay_title'       => __( 'ArteCas Furniture', 'nw-avada-like' ),
 		'overlay_description' => __( 'Showcase stunning furniture collections with an immersive visual experience.', 'nw-avada-like' ),
@@ -37,7 +37,7 @@ $cards = [
 		],
 	],
 	[
-		'image'        => 'http://localhost:8000/wp-content/uploads/2025/10/NexRise-This-could-be-your-website.-Lets-make-it-real.png',
+		'image'        => 'https://gonexrise.com/wp-content/uploads/2025/10/NexRise-This-could-be-your-website.-Lets-make-it-real.png',
 		'image_alt'    => __( 'Little Paws PetShop website preview', 'nw-avada-like' ),
 		'overlay_title'       => __( 'Little Paws PetShop', 'nw-avada-like' ),
 		'overlay_description' => __( 'Vibrant online store for pet lovers with advanced inventory management.', 'nw-avada-like' ),
@@ -50,7 +50,7 @@ $cards = [
 		],
 	],
 	[
-		'image'        => 'http://localhost:8000/wp-content/uploads/2025/10/Your-business-deserves-a-website-like-this.-Built-by-NexRise.png',
+		'image'        => 'https://gonexrise.com/wp-content/uploads/2025/10/Your-business-deserves-a-website-like-this.-Built-by-NexRise.png',
 		'image_alt'    => __( 'Lilies Fashion Store website preview', 'nw-avada-like' ),
 		'overlay_title'       => __( 'Lilies Fashion Store', 'nw-avada-like' ),
 		'overlay_description' => __( 'Trendy fashion destination with personalized shopping experience.', 'nw-avada-like' ),

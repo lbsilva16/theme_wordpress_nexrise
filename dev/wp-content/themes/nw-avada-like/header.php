@@ -18,10 +18,18 @@
 <header class="global-header" data-header>
   <div class="section-wrapper global-header__inner">
     <div class="global-header__branding">
-      <a class="global-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <!-- ESPACO PARA O LOGO: Adicione sua imagem em /assets/images/logo.png -->
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ) ); ?>" alt="NEXRISE - We Build. You Rise." />
-      </a>
+      <?php
+      $custom_logo_markup = get_custom_logo();
+      if ( $custom_logo_markup ) {
+        echo str_replace( 'custom-logo-link', 'custom-logo-link global-header__logo', $custom_logo_markup ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+      } else {
+        ?>
+        <a class="global-header__logo global-header__logo--image" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <img src="<?php echo esc_url( 'https://gonexrise.com/wp-content/uploads/2025/10/NEXRISE-We-Build.-You-Rise.png' ); ?>" alt="<?php esc_attr_e( 'NEXRISE - We Build. You Rise.', 'nw-avada-like' ); ?>">
+        </a>
+        <?php
+      }
+      ?>
     </div>
     <button class="global-header__toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
       <span class="global-header__toggle-box" aria-hidden="true"></span>
