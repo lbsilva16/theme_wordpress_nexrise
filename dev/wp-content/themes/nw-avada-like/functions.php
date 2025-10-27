@@ -13,23 +13,19 @@ if ( ! function_exists( 'nw_avada_like_setup' ) ) {
 	/**
 	 * Configura recursos de tema e menus.
 	 */
-	function nw_avada_like_setup() {
-		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'html5', [
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'script',
-			'style',
-		] );
-
-		register_nav_menus( [
-			'primary' => __( 'Primary Menu', 'nw-avada-like' ),
-		] );
-	}
+    function nw_avada_like_setup() {
+        add_theme_support( 'title-tag' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'html5', [
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'script',
+            'style',
+        ] );
+    }
 }
 add_action( 'after_setup_theme', 'nw_avada_like_setup' );
 
@@ -64,6 +60,34 @@ if ( ! function_exists( 'nw_avada_like_scripts' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nw_avada_like_scripts' );
+
+/**
+ * Registrar nova localização de menu e suporte a logo, conforme guia.
+ */
+function register_custom_menu() {
+    register_nav_menus(
+        [
+            'primary-menu' => __( 'Menu Principal', 'nw-avada-like' ),
+        ]
+    );
+}
+add_action( 'after_setup_theme', 'register_custom_menu' );
+
+function theme_custom_logo_setup() {
+    add_theme_support( 'custom-logo', [
+        'height'      => 60,
+        'width'       => 200,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ] );
+}
+add_action( 'after_setup_theme', 'theme_custom_logo_setup' );
+
+// Habilitar (não interfere) o walker de edição – mantém o campo de descrição disponível nas opções de tela.
+function enable_menu_description( $walker ) {
+    return $walker;
+}
+add_filter( 'wp_edit_nav_menu_walker', 'enable_menu_description' );
 
 // Enqueue NexRise theme assets.
 add_action(
@@ -122,99 +146,100 @@ add_action(
 	}
 );
 
-if ( ! function_exists( 'nw_avada_like_fallback_menu' ) ) {
-	/**
-	 * Fallback simples caso nenhum menu esteja atribuido.
-	 */
-	function nw_avada_like_fallback_menu() {
-		echo '<ul class="primary-nav__list">';
-		echo nw_avada_like_primary_menu_markup();
-		echo '</ul>';
-	}
+/**
+ * Custom Walker para menu com dropdown e descrições.
+ */
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    public function start_lvl( &$output, $depth = 0, $args = null ) {
+        $indent  = str_repeat( "\t", $depth );
+        $output .= "\n{$indent}<ul class=\"sub-menu\">\n";
+    }
+
+    public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+        $indent  = $depth ? str_repeat( "\t", $depth ) : '';
+        $classes = empty( $item->classes ) ? [] : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+        if ( in_array( 'menu-item-has-children', $classes, true ) ) {
+            $classes[] = 'has-dropdown';
+        }
+
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+        $item_id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+        $item_id = $item_id ? ' id="' . esc_attr( $item_id ) . '"' : '';
+
+        $output .= $indent . '<li' . $item_id . $class_names . '>';
+
+        $atts          = [];
+        $atts['title'] = ! empty( $item->attr_title ) ? $item->attr_title : '';
+        $atts['target'] = ! empty( $item->target ) ? $item->target : '';
+        $atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
+        $atts['href']   = ! empty( $item->url ) ? $item->url : '';
+        $atts           = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+
+        $attributes = '';
+        foreach ( $atts as $attr => $value ) {
+            if ( ! empty( $value ) ) {
+                $value      = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+                $attributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
+        $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+
+        if ( $depth > 0 && ! empty( $item->description ) ) {
+            $item_output  = $args->before;
+            $item_output .= '<a' . $attributes . ' class="dropdown-item">';
+            $item_output .= '<div class="dropdown-item-content">';
+            $icon         = get_post_meta( $item->ID, '_menu_item_icon', true );
+            $icon         = ! empty( $icon ) ? $icon : '📦';
+            $item_output .= '<div class="dropdown-icon">' . $icon . '</div>';
+            $item_output .= '<div class="dropdown-text">';
+            $item_output .= '<div class="dropdown-title">' . $args->link_before . $title . $args->link_after . '</div>';
+            $item_output .= '<div class="dropdown-description">' . esc_html( $item->description ) . '</div>';
+            $item_output .= '</div>';
+            $item_output .= '</div>';
+            $item_output .= '</a>';
+            $item_output .= $args->after;
+        } else {
+            $item_output  = $args->before;
+            $item_output .= '<a' . $attributes . '>';
+            $item_output .= $args->link_before . $title . $args->link_after;
+            $item_output .= '</a>';
+            $item_output .= $args->after;
+        }
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
 }
 
-if ( ! function_exists( 'nw_avada_like_primary_menu_markup' ) ) {
-	/**
-	 * Retorna o HTML padrao dos itens do menu primario.
-	 */
-	function nw_avada_like_primary_menu_markup(): string {
-		$base_url = home_url( '/' );
-		ob_start();
-		?>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url ); ?>"><?php echo esc_html__( 'Home', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#why-choose-us' ); ?>"><?php echo esc_html__( 'Why Us', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#outcomes' ); ?>"><?php echo esc_html__( 'Results', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#portfolio' ); ?>"><?php echo esc_html__( 'Portfolio', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#process' ); ?>"><?php echo esc_html__( 'Process', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item menu-item-has-children">
-			<a href="<?php echo esc_url( $base_url . '#solutions' ); ?>"><?php echo esc_html__( 'Pricing', 'nw-avada-like' ); ?></a>
-			<ul class="sub-menu">
-				<li class="menu-item">
-					<a href="<?php echo esc_url( $base_url . '#packages' ); ?>">
-						<div class="sub-menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3 7H21L20 21H4L3 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M8 7V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M10 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M14 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</div>
-						<div class="sub-menu-content">
-							<span class="sub-menu-title"><?php echo esc_html__( 'Packages', 'nw-avada-like' ); ?></span>
-							<span class="sub-menu-desc"><?php echo esc_html__( 'Complete solutions for your business', 'nw-avada-like' ); ?></span>
-						</div>
-					</a>
-				</li>
-				<li class="menu-item">
-					<a href="<?php echo esc_url( $base_url . '#addons' ); ?>">
-						<div class="sub-menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</div>
-						<div class="sub-menu-content">
-							<span class="sub-menu-title"><?php echo esc_html__( 'Add-Ons', 'nw-avada-like' ); ?></span>
-							<span class="sub-menu-desc"><?php echo esc_html__( 'Enhance your experience with extras', 'nw-avada-like' ); ?></span>
-						</div>
-					</a>
-				</li>
-				<li class="menu-item">
-					<a href="<?php echo esc_url( $base_url . '#care-plans' ); ?>">
-						<div class="sub-menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M9 9L12 6L16 10L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</div>
-						<div class="sub-menu-content">
-							<span class="sub-menu-title"><?php echo esc_html__( 'Growth Plans', 'nw-avada-like' ); ?></span>
-							<span class="sub-menu-desc"><?php echo esc_html__( 'Scale your business to the next level', 'nw-avada-like' ); ?></span>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#testimonials' ); ?>"><?php echo esc_html__( 'Testimonials', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#faq' ); ?>"><?php echo esc_html__( 'FAQ', 'nw-avada-like' ); ?></a></li>
-		<li class="menu-item"><a href="<?php echo esc_url( $base_url . '#final-cta' ); ?>"><?php echo esc_html__( 'Contact', 'nw-avada-like' ); ?></a></li>
-		<?php
-		return trim( ob_get_clean() );
-	}
+// Exibir campo de ícone (emoji) na edição de itens de menu.
+function custom_menu_item_icon_field( $item_id, $item, $depth, $args ) {
+    $icon = get_post_meta( $item_id, '_menu_item_icon', true );
+    ?>
+    <p class="field-icon description description-wide">
+        <label for="edit-menu-item-icon-<?php echo (int) $item_id; ?>">
+            <?php _e( 'Ícone (emoji)', 'nw-avada-like' ); ?><br />
+            <input type="text" id="edit-menu-item-icon-<?php echo (int) $item_id; ?>" class="widefat" name="menu-item-icon[<?php echo (int) $item_id; ?>]" value="<?php echo esc_attr( $icon ); ?>" />
+            <span class="description"><?php _e( 'Ex: 📦, 🔧, 📈', 'nw-avada-like' ); ?></span>
+        </label>
+    </p>
+    <?php
 }
+add_action( 'wp_nav_menu_item_custom_fields', 'custom_menu_item_icon_field', 10, 4 );
 
-add_filter(
-	'wp_nav_menu_items',
-	function ( $items, $args ) {
-		if ( isset( $args->theme_location ) && 'primary' === $args->theme_location ) {
-			return nw_avada_like_primary_menu_markup();
-		}
-		return $items;
-	},
-	10,
-	2
-);
+// Salvar campo de ícone customizado.
+function save_custom_menu_item_icon( $menu_id, $menu_item_db_id, $args ) {
+    if ( isset( $_REQUEST['menu-item-icon'][ $menu_item_db_id ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $icon_value = sanitize_text_field( wp_unslash( $_REQUEST['menu-item-icon'][ $menu_item_db_id ] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        update_post_meta( $menu_item_db_id, '_menu_item_icon', $icon_value );
+    } else {
+        delete_post_meta( $menu_item_db_id, '_menu_item_icon' );
+    }
+}
+add_action( 'wp_update_nav_menu_item', 'save_custom_menu_item_icon', 10, 3 );
 
 // Opcional: incluir Customizer de URLs (placeholders de imagens das seções).
 require_once get_template_directory() . '/inc/customizer-sections.php';

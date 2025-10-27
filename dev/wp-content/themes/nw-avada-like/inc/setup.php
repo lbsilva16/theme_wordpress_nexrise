@@ -34,11 +34,7 @@ if ( ! function_exists( 'nw_avada_like_setup' ) ) {
 			'flex-height' => true,
 		] );
 
-		register_nav_menus(
-			[
-				'primary' => __( 'Primary', 'nw-avada-like' ),
-			]
-		);
+        // Legacy header menu location removed. New location is registered in functions.php.
 	}
 }
 add_action( 'after_setup_theme', 'nw_avada_like_setup' );

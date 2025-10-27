@@ -1,35 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-
-  // Navegacao mobile
-  const headerToggle = document.querySelector('.global-header__toggle');
-  const primaryNav = document.querySelector('.global-header__nav');
-
-  const closeNav = () => {
-    if (!body.classList.contains('is-nav-open')) {
-      return;
-    }
-    body.classList.remove('is-nav-open');
-    headerToggle?.setAttribute('aria-expanded', 'false');
-  };
-
-  headerToggle?.addEventListener('click', () => {
-    const isOpen = body.classList.toggle('is-nav-open');
-    headerToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  primaryNav?.addEventListener('click', (event) => {
-    const target = event.target;
-    if (target instanceof HTMLAnchorElement && body.classList.contains('is-nav-open')) {
-      closeNav();
-    }
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeNav();
-    }
-  });
+  // Legacy header navigation JS removed (global-header__*). New header has inline JS.
 
   // Rotacao de texto no hero
   const heroWordTarget = document.querySelector('.hero__title-dynamic');
