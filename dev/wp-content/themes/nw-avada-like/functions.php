@@ -67,7 +67,9 @@ add_action( 'wp_enqueue_scripts', 'nw_avada_like_scripts' );
 function register_custom_menu() {
     register_nav_menus(
         [
-            'primary-menu' => __( 'Menu Principal', 'nw-avada-like' ),
+            'primary-menu'    => __( 'Menu Principal', 'nw-avada-like' ),
+            // Novo local para o drop-down de utilidades no mobile
+            'mobile_utilities' => __( 'Mobile Utilities', 'nw-avada-like' ),
         ]
     );
 }
@@ -143,6 +145,21 @@ add_action(
 				true
 			);
 		}
+
+        // Assets do drop-down Mobile Utilities
+        wp_enqueue_style(
+            'mobile-utilities-dropdown',
+            get_template_directory_uri() . '/assets/css/mobile-utilities-dropdown.css',
+            [ 'nx-css' ],
+            $ver
+        );
+        wp_enqueue_script(
+            'mobile-utilities-dropdown',
+            get_template_directory_uri() . '/assets/js/mobile-utilities-dropdown.js',
+            [ 'nx-js' ],
+            $ver,
+            true
+        );
 	}
 );
 

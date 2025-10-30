@@ -41,6 +41,26 @@
             ?>
         </nav>
 
+        <!-- Drop-down Mobile Utilities (apenas mobile) -->
+        <div class="mobile-utilities u-mobile-only" data-dropdown>
+            <button class="mobile-utilities__toggle" aria-expanded="false" aria-controls="mobile-utilities-menu">
+                <span class="mobile-utilities__label">Mais</span>
+                <span class="mobile-utilities__chevron" aria-hidden="true">▾</span>
+            </button>
+
+            <nav id="mobile-utilities-menu" class="mobile-utilities__menu" hidden>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'mobile_utilities',
+                    'container'      => false,
+                    'menu_class'     => 'mobile-utilities__list',
+                    'depth'          => 1,
+                    'fallback_cb'    => false,
+                ]);
+                ?>
+            </nav>
+        </div>
+
         <div class="button-container">
             <a href="<?php echo esc_url( home_url( '/#faq' ) ); ?>" class="btn-faq">FAQ</a>
             <a href="https://wa.me/12813744411" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">WhatsApp</a>
