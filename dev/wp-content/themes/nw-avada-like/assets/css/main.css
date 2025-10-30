@@ -128,6 +128,7 @@ main,
   display: inline-block;
   background: linear-gradient(135deg, var(--color-grad-start), var(--color-grad-end));
   -webkit-background-clip: text;
+  background-clip: text; /* adiciona propriedade padrão para compatibilidade */
   color: transparent;
   transition: opacity var(--transition-base), transform var(--transition-base);
 }
