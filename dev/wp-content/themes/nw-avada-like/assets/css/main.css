@@ -8,9 +8,14 @@ body {
   font-family: var(--font-body);
 }
 
-main {
-  padding-top: calc(var(--header-height) + 10px);
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 20%, #f8fafc 80%, #ffffff 100%);
+main, .site-main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.hero {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .section-anchor {
