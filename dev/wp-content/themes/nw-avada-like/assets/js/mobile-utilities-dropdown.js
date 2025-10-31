@@ -1,41 +1,38 @@
-(function ($) {
-	const $wrap = $('[data-dropdown].mobile-utilities');
-	if (!$wrap.length) return;
+(function () {
+	var wrap = document.querySelector('[data-dropdown].mobile-utilities');
+	if (!wrap) return;
 
-	const $btn = $wrap.find('.mobile-utilities__toggle');
-	const $menu = $wrap.find('#mobile-utilities-menu');
+	var btn = wrap.querySelector('.mobile-utilities__toggle');
+	var menu = wrap.querySelector('#mobile-utilities-menu');
+	if (!btn || !menu) return;
 
 	function openMenu() {
-		$btn.attr('aria-expanded', 'true');
-		$menu.removeAttr('hidden');
+		btn.setAttribute('aria-expanded', 'true');
+		menu.removeAttribute('hidden');
 	}
 
 	function closeMenu() {
-		$btn.attr('aria-expanded', 'false');
-		$menu.attr('hidden', '');
+		btn.setAttribute('aria-expanded', 'false');
+		menu.setAttribute('hidden', '');
 	}
 
 	function toggleMenu() {
-		const expanded = $btn.attr('aria-expanded') === 'true';
+		var expanded = btn.getAttribute('aria-expanded') === 'true';
 		expanded ? closeMenu() : openMenu();
 	}
 
-	$btn.on('click', function (e) {
+	btn.addEventListener('click', function (e) {
 		e.preventDefault();
 		toggleMenu();
 	});
 
-	// Fechar no clique fora
-	$(document).on('click', function (e) {
-		if (!$wrap.is(e.target) && $wrap.has(e.target).length === 0) {
-			closeMenu();
-		}
+	document.addEventListener('click', function (e) {
+		if (!wrap.contains(e.target)) closeMenu();
 	});
 
-	// Fechar com tecla Esc
-	$(document).on('keydown', function (e) {
+	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Escape') closeMenu();
 	});
-})(jQuery);
+})();
 
 

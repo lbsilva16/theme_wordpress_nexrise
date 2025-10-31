@@ -2,9 +2,7 @@
 .u-mobile-only { display: none; }
 @media (max-width: 768px) {
 	.u-mobile-only { display: inline-block; }
-	/* Oculta itens duplicados do menu principal no mobile (se existirem) */
-	.nav-menu .menu-item-testimonials,
-	.nav-menu .menu-item-contact,
+	/* Oculta do menu principal apenas os que ficarão no drop-down */
 	.nav-menu .menu-item-faq,
 	.nav-menu .menu-item-whatsapp { display: none !important; }
 
@@ -37,6 +35,9 @@
 	box-shadow: 0 10px 30px rgba(0,0,0,.12);
 	z-index: 1000;
 }
+
+/* Blindagem: quando hidden estiver presente, força display none */
+.mobile-utilities__menu[hidden] { display: none !important; }
 
 .mobile-utilities__list { list-style: none; margin: 0; padding: 8px; }
 .mobile-utilities__list > li { margin: 0; }
