@@ -260,3 +260,20 @@ add_action( 'wp_update_nav_menu_item', 'save_custom_menu_item_icon', 10, 3 );
 
 // Opcional: incluir Customizer de URLs (placeholders de imagens das seções).
 require_once get_template_directory() . '/inc/customizer-sections.php';
+
+/**
+ * Adiciona o código do Zoho SalesIQ em todas as páginas.
+ * O script será carregado antes do fechamento da tag </body> em todas as páginas do site.
+ *
+ * @package nw-avada-like
+ */
+function add_zoho_salesiq_chat() {
+	?>
+	<script>
+		window.$zoho = window.$zoho || {};
+		window.$zoho.salesiq = window.$zoho.salesiq || { ready: function(){} };
+	</script>
+	<script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqa01e98e0e2413c5570b3e09ffa6eb4310079f0f1da3f95679d62dd1ea6a52902" defer></script>
+	<?php
+}
+add_action( 'wp_footer', 'add_zoho_salesiq_chat', 999 );
