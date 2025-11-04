@@ -34,17 +34,18 @@
       </div>
 
       <div class="nexrise-footer__section">
-        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Company', 'nw-avada-like' ); ?></h3>
+        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'About NexRise', 'nw-avada-like' ); ?></h3>
         <ul class="nexrise-footer__menu">
           <li><a href="<?php echo esc_url( home_url( '/#why-choose-us' ) ); ?>"><?php esc_html_e( 'Why Us', 'nw-avada-like' ); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/#outcomes' ) ); ?>"><?php esc_html_e( 'Results', 'nw-avada-like' ); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/#portfolio' ) ); ?>"><?php esc_html_e( 'Portfolio', 'nw-avada-like' ); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/#process' ) ); ?>"><?php esc_html_e( 'Process', 'nw-avada-like' ); ?></a></li>
+          <li><a href="<?php echo esc_url( 'https://www.gonexrise.com/privacy-policy/' ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Privacy Policy', 'nw-avada-like' ); ?></a></li>
         </ul>
       </div>
 
       <div class="nexrise-footer__section">
-        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Resources', 'nw-avada-like' ); ?></h3>
+        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Get Started', 'nw-avada-like' ); ?></h3>
         <ul class="nexrise-footer__menu">
           <li><a href="<?php echo esc_url( home_url( '/#packages' ) ); ?>"><?php esc_html_e( 'Pricing', 'nw-avada-like' ); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/#testimonials' ) ); ?>"><?php esc_html_e( 'Testimonials', 'nw-avada-like' ); ?></a></li>
@@ -54,7 +55,7 @@
       </div>
 
       <div class="nexrise-footer__section">
-        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Stay in the loop', 'nw-avada-like' ); ?></h3>
+        <h3 class="nexrise-footer__section-title"><?php esc_html_e( 'Stay Updated', 'nw-avada-like' ); ?></h3>
         <div class="nexrise-footer__newsletter-box">
           <p class="nexrise-footer__newsletter-text">
             <?php esc_html_e( 'Get our latest tips on web design, SEO, and digital marketing - straight to your inbox. No spam, just strategies that work.', 'nw-avada-like' ); ?>
