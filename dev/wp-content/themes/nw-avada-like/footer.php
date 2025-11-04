@@ -31,6 +31,20 @@
         <p class="nexrise-footer__brand-description">
           <?php esc_html_e( 'We build high-performing WordPress websites and online stores that drive real results.', 'nw-avada-like' ); ?>
         </p>
+        <div class="nexrise-footer__contact-info">
+          <div class="nexrise-footer__contact-item">
+            <span class="nexrise-footer__contact-label">Phone:</span>
+            <a href="https://wa.me/12813744411" target="_blank" rel="noopener noreferrer" class="nexrise-footer__contact-link">+1 (281) 374-4411</a>
+          </div>
+          <div class="nexrise-footer__contact-item">
+            <span class="nexrise-footer__contact-label">Email:</span>
+            <a href="mailto:info@gonexrise.com" class="nexrise-footer__contact-link">info@gonexrise.com</a>
+          </div>
+          <div class="nexrise-footer__contact-item">
+            <span class="nexrise-footer__contact-label">Address:</span>
+            <span class="nexrise-footer__contact-text">Houston, Texas</span>
+          </div>
+        </div>
       </div>
 
       <div class="nexrise-footer__section">

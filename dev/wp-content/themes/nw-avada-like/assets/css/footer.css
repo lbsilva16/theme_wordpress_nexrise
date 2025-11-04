@@ -116,6 +116,41 @@
   font-size: 15px;
 }
 
+.nexrise-footer__contact-info {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nexrise-footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.nexrise-footer__contact-label {
+  color: #94a3b8;
+  font-weight: 500;
+  min-width: 60px;
+}
+
+.nexrise-footer__contact-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nexrise-footer__contact-link:hover {
+  color: #2F67FF;
+}
+
+.nexrise-footer__contact-text {
+  color: #cbd5e1;
+}
+
 .nexrise-footer__section-title {
   color: #fff;
   font-size: 18px;
