@@ -160,6 +160,17 @@ add_action(
             $ver,
             true
         );
+
+		// Script para página Privacy Policy
+		if ( is_page( 'privacy-policy' ) || is_page( 'Privacy Policy' ) ) {
+			wp_enqueue_script(
+				'nw-avada-like-privacy-policy',
+				get_template_directory_uri() . '/assets/js/privacy-policy.js',
+				[ 'nx-js' ],
+				$ver,
+				true
+			);
+		}
 	}
 );
 
