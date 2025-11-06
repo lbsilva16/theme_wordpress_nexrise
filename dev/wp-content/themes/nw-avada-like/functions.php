@@ -67,7 +67,7 @@ add_action( 'wp_enqueue_scripts', 'nw_avada_like_scripts' );
 function register_custom_menu() {
     register_nav_menus(
         [
-            'primary-menu'    => __( 'Menu Principal', 'nw-avada-like' ),
+            'primary-menu'    => __( 'Primary Menu', 'nw-avada-like' ),
             // Novo local para o drop-down de utilidades no mobile
             'mobile_utilities' => __( 'Mobile Utilities', 'nw-avada-like' ),
         ]
@@ -91,7 +91,7 @@ function enable_menu_description( $walker ) {
 }
 add_filter( 'wp_edit_nav_menu_walker', 'enable_menu_description' );
 
-// Enqueue NexRise theme assets.
+// Enfileira os assets do tema NexRise.
 add_action(
 	'wp_enqueue_scripts',
 	function () {
@@ -249,9 +249,9 @@ function custom_menu_item_icon_field( $item_id, $item, $depth, $args ) {
     ?>
     <p class="field-icon description description-wide">
         <label for="edit-menu-item-icon-<?php echo (int) $item_id; ?>">
-            <?php _e( 'Ícone (emoji)', 'nw-avada-like' ); ?><br />
+            <?php _e( 'Icon (emoji)', 'nw-avada-like' ); ?><br />
             <input type="text" id="edit-menu-item-icon-<?php echo (int) $item_id; ?>" class="widefat" name="menu-item-icon[<?php echo (int) $item_id; ?>]" value="<?php echo esc_attr( $icon ); ?>" />
-            <span class="description"><?php _e( 'Ex: 📦, 🔧, 📈', 'nw-avada-like' ); ?></span>
+            <span class="description"><?php _e( 'E.g.: 📦, 🔧, 📈', 'nw-avada-like' ); ?></span>
         </label>
     </p>
     <?php

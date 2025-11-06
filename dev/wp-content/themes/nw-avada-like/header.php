@@ -14,7 +14,7 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="skip-link" href="#main-content"><?php esc_html_e( 'Ir para o conteudo', 'nw-avada-like' ); ?></a>
+<a class="skip-link" href="#main-content"><?php esc_html_e( 'Skip to content', 'nw-avada-like' ); ?></a>
 <header class="header-menu">
     <div class="logo">
         <?php
@@ -29,7 +29,7 @@
     <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
 
     <div class="nav-container" id="navContainer">
-        <nav aria-label="<?php esc_attr_e( 'Navegacao principal', 'nw-avada-like' ); ?>">
+        <nav aria-label="<?php esc_attr_e( 'Primary navigation', 'nw-avada-like' ); ?>">
             <?php
             wp_nav_menu( [
                 'theme_location' => 'primary-menu',
@@ -41,10 +41,10 @@
             ?>
         </nav>
 
-        <!-- Drop-down Mobile Utilities (apenas mobile) -->
+        <!-- Drop-down Mobile Utilities (apenas em dispositivos móveis) -->
         <div class="mobile-utilities u-mobile-only" data-dropdown>
             <button class="mobile-utilities__toggle" aria-expanded="false" aria-controls="mobile-utilities-menu">
-                <span class="mobile-utilities__label">Mais</span>
+                <span class="mobile-utilities__label">More</span>
                 <span class="mobile-utilities__chevron" aria-hidden="true">▾</span>
             </button>
 
@@ -71,7 +71,7 @@
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ===== HEADER MENU STYLES ===== */
+    /* ===== ESTILOS DO MENU DO CABEÇALHO ===== */
     .header-menu { background: rgba(255, 255, 255, 0.98); padding: 20px 60px; display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 40px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000; width: 100%; }
     .logo { font-size: 24px; font-weight: bold; color: #5e72e4; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .logo a { color: #5e72e4; text-decoration: none; display: flex; align-items: center; gap: 10px; }
@@ -121,7 +121,7 @@
 
     .mobile-menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; color: #667eea; }
 
-    /* ===== RESPONSIVE DESIGN ===== */
+    /* ===== DESIGN RESPONSIVO ===== */
     @media (max-width: 1400px) { .header-menu { padding: 20px 40px; grid-template-columns: 180px 1fr auto; gap: 30px; } .nav-menu { gap: 25px; } .nav-container { gap: 30px; } }
     @media (max-width: 1024px) { .header-menu { grid-template-columns: 1fr auto; padding: 20px 30px; } .logo img { max-height: 56px; } .nav-menu { gap: 20px; } .sub-menu { min-width: 240px; } }
     @media (max-width: 768px) {

@@ -77,7 +77,7 @@
           <form class="nexrise-footer__form" action="#" method="post">
             <?php wp_nonce_field( 'nw_avada_like_footer_optin', 'nw_avada_like_footer_nonce' ); ?>
             <div class="nexrise-footer__email-input-wrapper">
-              <label class="visually-hidden" for="nexrise-footer-email"><?php esc_html_e( 'Digite seu email', 'nw-avada-like' ); ?></label>
+              <label class="visually-hidden" for="nexrise-footer-email"><?php esc_html_e( 'Enter your email', 'nw-avada-like' ); ?></label>
               <input class="nexrise-footer__email-input" type="email" id="nexrise-footer-email" name="nexrise-footer-email" placeholder="<?php esc_attr_e( 'Enter your email', 'nw-avada-like' ); ?>" required>
             </div>
             <button class="nexrise-footer__subscribe-btn" type="submit"><?php esc_html_e( 'Subscribe Now', 'nw-avada-like' ); ?></button>
