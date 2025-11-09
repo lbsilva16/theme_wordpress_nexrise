@@ -9,25 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'nw_avada_like_setup' ) ) {
-	/**
-	 * Configura recursos de tema e menus.
-	 */
-    function nw_avada_like_setup() {
-        add_theme_support( 'title-tag' );
-        add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'html5', [
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-            'script',
-            'style',
-        ] );
-    }
-}
-add_action( 'after_setup_theme', 'nw_avada_like_setup' );
+// Carregar arquivo de setup do tema (contém nw_avada_like_setup, load_theme_textdomain e content_width).
+require_once get_template_directory() . '/inc/setup.php';
+
+// Carregar funções auxiliares de template (nw_avada_like_posted_on, nw_avada_like_posted_by).
+require_once get_template_directory() . '/inc/template-tags.php';
 
 if ( ! function_exists( 'nw_avada_like_scripts' ) ) {
 	/**
@@ -222,7 +208,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
             $item_output .= '<a' . $attributes . ' class="dropdown-item">';
             $item_output .= '<div class="dropdown-item-content">';
             $icon         = get_post_meta( $item->ID, '_menu_item_icon', true );
-            $icon         = ! empty( $icon ) ? $icon : '📦';
+            $icon         = ! empty( $icon ) ? esc_html( $icon ) : '📦';
             $item_output .= '<div class="dropdown-icon">' . $icon . '</div>';
             $item_output .= '<div class="dropdown-text">';
             $item_output .= '<div class="dropdown-title">' . $args->link_before . $title . $args->link_after . '</div>';
@@ -268,6 +254,24 @@ function save_custom_menu_item_icon( $menu_id, $menu_item_db_id, $args ) {
     }
 }
 add_action( 'wp_update_nav_menu_item', 'save_custom_menu_item_icon', 10, 3 );
+
+/**
+ * Registrar áreas de widgets (sidebars).
+ */
+function nw_avada_like_widgets_init() {
+	register_sidebar(
+		[
+			'name'          => esc_html__( 'Primary Sidebar', 'nw-avada-like' ),
+			'id'            => 'primary-sidebar',
+			'description'   => esc_html__( 'Add widgets here to appear in the primary sidebar.', 'nw-avada-like' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		]
+	);
+}
+add_action( 'widgets_init', 'nw_avada_like_widgets_init' );
 
 // Opcional: incluir Customizer de URLs (placeholders de imagens das seções).
 require_once get_template_directory() . '/inc/customizer-sections.php';

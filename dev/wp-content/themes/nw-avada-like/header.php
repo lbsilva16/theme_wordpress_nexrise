@@ -26,7 +26,7 @@
         ?>
     </div>
 
-    <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMenu()" aria-label="<?php esc_attr_e( 'Toggle Menu', 'nw-avada-like' ); ?>" aria-expanded="false" aria-controls="navContainer">☰</button>
 
     <div class="nav-container" id="navContainer">
         <nav aria-label="<?php esc_attr_e( 'Primary navigation', 'nw-avada-like' ); ?>">
@@ -35,7 +35,15 @@
                 'theme_location' => 'primary-menu',
                 'container'      => false,
                 'menu_class'     => 'nav-menu',
-                'fallback_cb'    => false,
+                'fallback_cb'    => function() {
+                    echo '<ul class="nav-menu">';
+                    echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'nw-avada-like' ) . '</a></li>';
+                    wp_list_pages( [
+                        'title_li' => '',
+                        'depth'    => 1,
+                    ] );
+                    echo '</ul>';
+                },
                 'walker'         => class_exists( 'Custom_Walker_Nav_Menu' ) ? new Custom_Walker_Nav_Menu() : null,
             ] );
             ?>
@@ -93,7 +101,9 @@
 
     /* Submenu Moderno */
     .sub-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 16px; padding: 12px; min-width: 280px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); margin-top: 10px; list-style: none; }
-    .menu-item-has-children:hover .sub-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .menu-item-has-children:hover .sub-menu,
+    .menu-item-has-children:focus-within .sub-menu,
+    .menu-item-has-children.has-focus .sub-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
     .sub-menu::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 12px solid white; filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.05)); }
     .sub-menu li { margin: 0; }
     .sub-menu a { display: block; padding: 16px 20px; border-radius: 12px; transition: all 0.3s ease; position: relative; overflow: hidden; margin-bottom: 6px; }
@@ -143,16 +153,38 @@
 <script>
     function toggleMenu() {
         const navContainer = document.getElementById('navContainer');
-        if (navContainer) {
-            navContainer.classList.toggle('active');
+        const toggleButton = document.getElementById('mobileMenuToggle');
+        if (navContainer && toggleButton) {
+            const isActive = navContainer.classList.toggle('active');
+            toggleButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         }
     }
     document.addEventListener('DOMContentLoaded', function() {
+        // Fechar menu mobile ao clicar em link
         document.querySelectorAll('.nav-menu a').forEach(function(link) {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
                     var el = document.getElementById('navContainer');
+                    var toggleButton = document.getElementById('mobileMenuToggle');
                     if (el) el.classList.remove('active');
+                    if (toggleButton) toggleButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Suporte a teclado para dropdowns
+        document.querySelectorAll('.menu-item-has-children > a').forEach(function(link) {
+            link.addEventListener('focus', function() {
+                this.closest('.menu-item-has-children')?.classList.add('has-focus');
+            });
+            link.addEventListener('blur', function() {
+                var menuItem = this.closest('.menu-item-has-children');
+                if (menuItem) {
+                    setTimeout(function() {
+                        if (!menuItem.matches(':focus-within')) {
+                            menuItem.classList.remove('has-focus');
+                        }
+                    }, 100);
                 }
             });
         });
