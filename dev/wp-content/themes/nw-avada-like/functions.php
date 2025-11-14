@@ -81,9 +81,18 @@ add_filter( 'wp_edit_nav_menu_walker', 'enable_menu_description' );
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		$ver = wp_get_theme()->get( 'Version' ) ?: '1.0.0';
-		wp_enqueue_style( 'nx-css', get_template_directory_uri() . '/assets/css/nx.css', [], $ver );
-		wp_enqueue_script( 'nx-js', get_template_directory_uri() . '/assets/js/nx.js', [], $ver, true );
+	$ver = wp_get_theme()->get( 'Version' ) ?: '1.0.0';
+	wp_enqueue_style( 'nx-css', get_template_directory_uri() . '/assets/css/nx.css', [], $ver );
+	wp_enqueue_script( 'nx-js', get_template_directory_uri() . '/assets/js/nx.js', [], $ver, true );
+
+	// Newsletter integration script (loaded on all pages since footer is global)
+	wp_enqueue_script(
+		'nw-avada-like-newsletter',
+		get_template_directory_uri() . '/assets/js/newsletter.js',
+		[],
+		$ver,
+		true
+	);
 
 		if ( is_front_page() ) {
 			wp_enqueue_style(

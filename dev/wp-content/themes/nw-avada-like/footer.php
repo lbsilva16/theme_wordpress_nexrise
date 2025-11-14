@@ -74,14 +74,16 @@
           <p class="nexrise-footer__newsletter-text">
             <?php esc_html_e( 'Get our latest tips on web design, SEO, and digital marketing - straight to your inbox. No spam, just strategies that work.', 'nw-avada-like' ); ?>
           </p>
-          <form class="nexrise-footer__form" action="#" method="post">
-            <?php wp_nonce_field( 'nw_avada_like_footer_optin', 'nw_avada_like_footer_nonce' ); ?>
+          <form id="nexrise-newsletter-form" class="nexrise-footer__form" action="#" method="post">
             <div class="nexrise-footer__email-input-wrapper">
               <label class="visually-hidden" for="nexrise-footer-email"><?php esc_html_e( 'Enter your email', 'nw-avada-like' ); ?></label>
-              <input class="nexrise-footer__email-input" type="email" id="nexrise-footer-email" name="nexrise-footer-email" placeholder="<?php esc_attr_e( 'Enter your email', 'nw-avada-like' ); ?>" required>
+              <input class="nexrise-footer__email-input" type="email" id="nexrise-footer-email" name="CONTACT_EMAIL" placeholder="<?php esc_attr_e( 'Enter your email', 'nw-avada-like' ); ?>" required>
             </div>
             <button class="nexrise-footer__subscribe-btn" type="submit"><?php esc_html_e( 'Subscribe Now', 'nw-avada-like' ); ?></button>
+            <div id="newsletter-message" style="margin-top:10px;font-size:14px;"></div>
           </form>
+          <!-- Iframe oculto para submissão do formulário Zoho -->
+          <iframe name="_zcSignup" id="_zcSignup" style="display:none;width:0;height:0;border:0;" title="Zoho Campaigns Signup"></iframe>
         </div>
       </div>
     </div>
