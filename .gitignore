@@ -1,0 +1,39 @@
+# =========================
+# Node / ferramentas
+# =========================
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# =========================
+# Docker volumes
+# =========================
+db_data/
+
+# Configs locais do Docker
+docker/dev.ini
+
+# =========================
+# WordPress (dev/wp-content)
+# =========================
+
+# Uploads (imagens, PDFs, etc)
+dev/wp-content/uploads/
+
+# Plugins (podem ser reinstalados)
+dev/wp-content/plugins/
+
+# Cache / backups / temporários
+dev/wp-content/cache/
+dev/wp-content/ai1wm-backups/
+dev/wp-content/upgrade/
+dev/wp-content/upgrade-temp-backup/
+dev/wp-content/wflogs/
+
+# Logs gerais
+*.log
+dev/wp-content/debug.log
+
+# Arquivos sensíveis do WordPress (NÃO versionar)
+dev/wp-config.php
+dev/.htaccess
