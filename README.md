@@ -209,7 +209,7 @@ Agência especializada em:
 ## 👤 Desenvolvedor Responsável
 
 **Leandro Bueno da Silva**
-NexRise – Founder & Creative Director
+NexRise – Full-Stack Software Engineer
 GitHub: [https://github.com/lbsilva16](https://github.com/lbsilva16)
 
 ---
