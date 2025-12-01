@@ -218,19 +218,3 @@ GitHub: [https://github.com/lbsilva16](https://github.com/lbsilva16)
 
 Projeto privado e exclusivo para uso interno da **NexRise**.
 
-```
-
----
-
-# 🎉 Pronto!
-
-Quer que eu:
-
-✅ Suba esse README para você (te passo os comandos)?  
-Ou  
-✅ Adapte esse README para virar um **template da agência**?  
-Ou  
-✅ Crie um README ainda mais detalhado?  
-
-Só me dizer!
-```
