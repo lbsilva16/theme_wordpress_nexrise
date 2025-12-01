@@ -1,8 +1,3 @@
-Perfeito, Leandro.
-Aqui está um **README.md profissional**, completo, organizado e no padrão de agências internacionais — adaptado exatamente para o seu repositório **theme_wordpress_nexrise** e para o fluxo profissional da **NexRise**.
-
-Você só precisa copiar e colar no arquivo:
-
 📄 **README.md**
 na raiz do seu repositório.
 
